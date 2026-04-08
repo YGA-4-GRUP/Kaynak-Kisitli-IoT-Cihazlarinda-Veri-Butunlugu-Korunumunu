@@ -1,0 +1,799 @@
+file 47000 1775635795                                           
+version 3
+run RSA-0-20260408-11:08:59-2456
+attr configname RSA
+attr datetime 20260408-11:08:59
+attr datetimef 20260408-110859
+attr experiment RSA
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network AdvancedSecurityNetwork
+attr processid 2456
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config description "RSA-2048 Sifrelemesi (Gecikme cok, Manipulasyon engellendi)"
+config *.sensor.app[0].cryptoType "\"RSA\""
+config *.sensor.app[0].packetSize 256B
+config *.sensor.app[0].cryptoCpuDelay 50ms
+config *.actuator.app[0].cryptoType "\"RSA\""
+config *.actuator.app[0].cryptoCpuDelay 50ms
+config network AdvancedSecurityNetwork
+config ned-path .:/home/uzai/yga/omnet/inet/src
+config sim-time-limit 100s
+config output-scalar-file results/RSA-0.sca
+config output-vector-file results/RSA-0.vec
+config *.configurator.typename Ipv4NetworkConfigurator
+config **.wlan[*].typename Ieee80211Interface
+config **.wlan[*].mac.typename Ieee80211Mac
+config **.wlan[*].radio.typename Ieee80211ScalarRadio
+config **.wlan[*].mgmt.typename Ieee80211MgmtAdhoc
+config **.wlan[*].agent.typename ""
+config **.radioMedium.backgroundNoise.power -90dBm
+config *.sensor.numApps 1
+config *.sensor.app[0].typename SmartSensorApp
+config *.sensor.app[0].localPort 4000
+config *.sensor.app[0].destPort 5000
+config *.sensor.app[0].destAddress "\"mitm\""
+config *.sensor.app[0].sendInterval 1s
+config *.sensor.app[0].senseDelay 5ms
+config *.sensor.app[0].isActuator false
+config *.mitm.numApps 1
+config *.mitm.app[0].typename MitMApp
+config *.mitm.app[0].localPort 5000
+config *.mitm.app[0].destPort 6000
+config *.mitm.app[0].destAddress "\"actuator\""
+config *.actuator.numApps 1
+config *.actuator.app[0].typename SmartSensorApp
+config *.actuator.app[0].localPort 6000
+config *.actuator.app[0].destPort 0
+config *.actuator.app[0].destAddress "\"\""
+config *.actuator.app[0].isActuator true
+config *.actuator.app[0].actuateDelay 20ms
+
+vector 0 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(frameSequenceStarted)-count(frameSequenceFinished))
+attr title "frame sequence active"
+vector 1 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length"
+vector 2 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(backoffStarted)-count(backoffStopped))
+attr title "backoff active"
+vector 3 AdvancedSecurityNetwork.sensor.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 4 AdvancedSecurityNetwork.sensor.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 5 AdvancedSecurityNetwork.sensor.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 6 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(frameSequenceStarted)-count(frameSequenceFinished))
+attr title "frame sequence active"
+vector 7 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length"
+vector 8 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(backoffStarted)-count(backoffStopped))
+attr title "backoff active"
+vector 9 AdvancedSecurityNetwork.mitm.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 10 AdvancedSecurityNetwork.mitm.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 11 AdvancedSecurityNetwork.mitm.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 12 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(frameSequenceStarted)-count(frameSequenceFinished))
+attr title "frame sequence active"
+vector 13 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length"
+vector 14 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(backoffStarted)-count(backoffStopped))
+attr title "backoff active"
+vector 15 AdvancedSecurityNetwork.actuator.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 16 AdvancedSecurityNetwork.actuator.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 17 AdvancedSecurityNetwork.actuator.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 18 AdvancedSecurityNetwork.sensor.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 19 AdvancedSecurityNetwork.sensor.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioChannelChanged
+attr title "Radio channel"
+vector 20 AdvancedSecurityNetwork.mitm.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 21 AdvancedSecurityNetwork.mitm.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioChannelChanged
+attr title "Radio channel"
+vector 22 AdvancedSecurityNetwork.actuator.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 23 AdvancedSecurityNetwork.actuator.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioChannelChanged
+attr title "Radio channel"
+vector 24 AdvancedSecurityNetwork.sensor.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 25 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf.channelAccess.contention stateChanged:vector ETV
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode vector
+attr title "contention state changed"
+attr type enum
+vector 26 AdvancedSecurityNetwork.mitm.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 27 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf.channelAccess.contention stateChanged:vector ETV
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode vector
+attr title "contention state changed"
+attr type enum
+vector 28 AdvancedSecurityNetwork.actuator.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 29 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf.channelAccess.contention stateChanged:vector ETV
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode vector
+attr title "contention state changed"
+attr type enum
+vector 30 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "contention window"
+vector 31 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "contention window"
+vector 32 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "contention window"
+vector 33 AdvancedSecurityNetwork.sensor.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 34 AdvancedSecurityNetwork.sensor.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, packetBytes"
+vector 35 AdvancedSecurityNetwork.sensor.wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from upper layer, packetBytes"
+vector 36 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 37 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 38 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 39 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 40 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "backoff periods"
+vector 41 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 42 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 43 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 44 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "datarates selected"
+vector 45 AdvancedSecurityNetwork.sensor.wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to lower layer, packetBytes"
+vector 46 AdvancedSecurityNetwork.sensor.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 47 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent, packetBytes"
+vector 48 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, packetBytes"
+vector 49 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf packetSentToPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , packetBytes"
+vector 50 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, packetBytes"
+vector 51 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+vector 52 AdvancedSecurityNetwork.mitm.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from lower layer, packetBytes"
+vector 53 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received, packetBytes"
+vector 54 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, packetBytes"
+vector 55 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, packetBytes"
+vector 56 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, packetBytes"
+vector 57 AdvancedSecurityNetwork.mitm.wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to upper layer, packetBytes"
+vector 58 AdvancedSecurityNetwork.mitm.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, packetBytes"
+vector 59 AdvancedSecurityNetwork.mitm.wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from upper layer, packetBytes"
+vector 60 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 61 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf.channelAccess.pendingQueue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 62 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 63 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 64 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "backoff periods"
+vector 65 AdvancedSecurityNetwork.actuator.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from lower layer, packetBytes"
+vector 66 AdvancedSecurityNetwork.actuator.wlan[0].mac packetDrop:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropped
+attr title "packet drops, packetBytes"
+vector 67 AdvancedSecurityNetwork.actuator.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, packetBytes"
+vector 68 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 69 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 70 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 71 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "datarates selected"
+vector 72 AdvancedSecurityNetwork.mitm.wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to lower layer, packetBytes"
+vector 73 AdvancedSecurityNetwork.mitm.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 74 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent, packetBytes"
+vector 75 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf packetSentToPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, packetBytes"
+vector 76 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, packetBytes"
+vector 77 AdvancedSecurityNetwork.mitm.wlan[0].mac.rx nav:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source navChanged
+attr title "network allocation vector"
+vector 78 AdvancedSecurityNetwork.sensor.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from lower layer, packetBytes"
+vector 79 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received, packetBytes"
+vector 80 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf packetReceivedFromPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, packetBytes"
+vector 81 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, packetBytes"
+vector 82 AdvancedSecurityNetwork.sensor.wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to upper layer, packetBytes"
+vector 83 AdvancedSecurityNetwork.actuator.wlan[0].mac.rx nav:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source navChanged
+attr title "network allocation vector"
+vector 84 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf packetDrop:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropped
+attr title "packet drops, packetBytes"
+vector 85 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, packetBytes"
+vector 86 AdvancedSecurityNetwork.actuator.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, packetBytes"
+vector 87 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf packetSentToPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, packetBytes"
+vector 88 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf packetReceivedFromPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, packetBytes"
+vector 89 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+vector 90 AdvancedSecurityNetwork.sensor.wlan[0].mac.rx nav:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source navChanged
+attr title "network allocation vector"
+vector 91 AdvancedSecurityNetwork.mitm.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 92 AdvancedSecurityNetwork.mitm.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 93 AdvancedSecurityNetwork.mitm.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, packetBytes"
+vector 94 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, packetBytes"
+vector 95 AdvancedSecurityNetwork.mitm.wlan[0].mac.dcf packetSentToPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , packetBytes"
+vector 96 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, packetBytes"
+vector 97 AdvancedSecurityNetwork.sensor.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, packetBytes"
+vector 98 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received, packetBytes"
+vector 99 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, packetBytes"
+vector 100 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, packetBytes"
+vector 101 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, packetBytes"
+vector 102 AdvancedSecurityNetwork.actuator.wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to upper layer, packetBytes"
+vector 103 AdvancedSecurityNetwork.actuator.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, packetBytes"
+vector 104 AdvancedSecurityNetwork.actuator.wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from upper layer, packetBytes"
+vector 105 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 106 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf.channelAccess.pendingQueue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 107 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 108 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 109 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "backoff periods"
+vector 110 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 111 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 112 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 113 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "datarates selected"
+vector 114 AdvancedSecurityNetwork.actuator.wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to lower layer, packetBytes"
+vector 115 AdvancedSecurityNetwork.actuator.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 116 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent, packetBytes"
+vector 117 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf packetSentToPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, packetBytes"
+vector 118 AdvancedSecurityNetwork.actuator.wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, packetBytes"
+vector 119 AdvancedSecurityNetwork.sensor.wlan[0].mac packetDrop:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropped
+attr title "packet drops, packetBytes"
+vector 120 AdvancedSecurityNetwork.sensor.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, packetBytes"
+0	32151 84 0 90 0 6.001264668512 6 0 1 2 2
+1	32235 84 0 90 0 6.001264668512 6 0 1 2 2
+2	32319 122 0 60 0 6.001085334256 8 0 1 3 3
+3	32441 8 0 0 0 0 1 0 0 0 0
+4	32449 8 0 0 0 0 1 0 0 0 0
+5	32457 8 0 0 0 0 1 0 0 0 0
+6	32465 104 0 98 0 6.001384001384 6 0 1 2 2
+7	32569 104 0 98 0 6.001384001384 6 0 1 2 2
+8	32673 214 0 133 0 6.00200933564 11 0 1 5 5
+9	32887 30 0 72 0 6.001220001384 2 0 1 1 1
+10	32917 9 0 0 0 0 1 0 0 0 0
+11	32926 9 0 0 0 0 1 0 0 0 0
+12	32935 42 0 111 0 6.001914668512 3 0 1 1 1
+13	32977 42 0 111 0 6.001914668512 3 0 1 1 1
+14	33019 66 0 110 0 6.001914668512 4 0 1 1 1
+15	33085 9 0 0 0 0 1 0 0 0 0
+16	33094 9 0 0 0 0 1 0 0 0 0
+17	33103 9 0 0 0 0 1 0 0 0 0
+18	33112 145 0 67 0 6.001219334256 9 0 3 17 43
+19	33257 9 0 0 0 0 1 0 0 0 0
+20	33266 211 0 133 0 6.00200933564 11 0 3 22 56
+21	33477 9 0 0 0 0 1 0 0 0 0
+22	33486 75 0 117 0 6.001964668512 5 0 3 7 17
+23	33561 9 0 0 0 0 1 0 0 0 0
+24	33570 362 0 134 0 6.002010002768 17 0 3 24 54
+25	33932 812 0 134 0 6.002010002768 40 0 2 14 26
+26	34744 377 0 133 0 6.00200933564 17 0 3 21 45
+27	35121 892 0 133 0 6.00200933564 40 0 2 22 40
+28	36013 382 0 135 0 6.002010002768 17 0 3 30 72
+29	36395 902 0 135 0 6.002010002768 40 0 2 4 8
+30	37297 10 0 0 0 0 1 31 31 31 961
+31	37307 10 0 0 0 0 1 31 31 31 961
+32	37317 10 0 0 0 0 1 31 31 31 961
+33	37327 12 11 11 6 6 1 264 264 264 69696
+34	37339 11 12 12 6 6 1 28 28 28 784
+35	37350 36 14 46 6 6.000511334256 2 36 292 328 86560
+36	37386 38 14 46 6 6.000511334256 2 512 2560 3072 6815744
+37	37424 708 14 14 0.1 6 60 0 0 0 0
+38	38132 66 14 61 6 6.001085334256 4 0 1 2 2
+39	38198 71 14 61 6 6.001085334256 4 0 2560 3072 6815744
+40	38269 35 14 46 6 6.000511334256 2 19 24 43 937
+41	38304 40 16 61 6 6.001085334256 2 0 0.000574 0.000574 3.29476e-07
+42	38344 38 16 61 6 6.001085334256 2 512 2560 3072 6815744
+43	38382 708 16 16 0.1 6 60 0 0 0 0
+44	39090 77 16 61 6 6.001085334256 3 24000000 24000000 72000000 1.728e+15
+45	39167 60 16 61 6 6.001085334256 3 14 320 398 106692
+46	39227 236 17 67 6 6.001219334256 12 0 2 12 18
+47	39463 66 21 66 6.00005 6.001219334256 3 14 320 398 106692
+48	39529 17 21 21 6.00005 6.00005 1 64 64 64 4096
+49	39546 17 21 21 6.00005 6.00005 1 64 64 64 4096
+50	39563 66 21 66 6.00005 6.001219334256 3 14 320 398 106692
+51	39629 56 21 90 6.00005 6.001264668512 2 5e-05 0.000179334256 0.000229334256 3.4660775375074e-08
+52	39685 97 24 119 6.000050667128 6.00196533564 4 14 320 462 110788
+53	39782 97 24 119 6.000050667128 6.00196533564 4 14 320 462 110788
+54	39879 24 24 24 6.000050667128 6.000050667128 1 64 64 64 4096
+55	39903 24 24 24 6.000050667128 6.000050667128 1 64 64 64 4096
+56	39927 97 24 119 6.000050667128 6.00196533564 4 14 320 462 110788
+57	40024 73 24 119 6.000050667128 6.00196533564 3 36 292 364 87856
+58	40097 24 26 26 6.000050667128 6.000050667128 1 28 28 28 784
+59	40121 73 28 123 6.000050667128 6.00196533564 3 36 292 364 87856
+60	40194 76 28 123 6.000050667128 6.00196533564 3 512 2560 3584 7077888
+61	40270 708 28 28 0.1 6 60 0 0 0 0
+62	40978 115 28 123 6.000050667128 6.00196533564 5 0 1 3 3
+63	41093 122 28 123 6.000050667128 6.00196533564 5 0 2560 3584 7077888
+64	41215 70 28 123 6.000050667128 6.00196533564 3 1 18 24 350
+65	41285 146 30 103 6.000051334256 6.001384668512 6 14 320 540 115080
+66	41431 121 30 91 6.000051334256 6.001264668512 5 14 320 476 110984
+67	41552 73 30 79 6.000051334256 6.001220668512 3 14 320 398 106692
+68	41625 59 32 93 6.000460667128 6.001334001384 2 0.000114 0.00041 0.000524 1.81096e-07
+69	41684 50 32 93 6.000460667128 6.001334001384 2 512 512 1024 524288
+70	41734 708 32 32 0.1 6 60 0 0 0 0
+71	42442 120 32 119 6.000460667128 6.00196533564 4 24000000 24000000 96000000 2.304e+15
+72	42562 96 32 126 6.000460667128 6.00197533564 4 14 64 156 8584
+73	42658 368 33 133 6.000460667128 6.00200933564 16 0 2 16 24
+74	43026 96 37 132 6.000510667128 6.00200933564 4 14 64 156 8584
+75	43122 72 37 132 6.000510667128 6.00200933564 3 14 64 92 4488
+76	43194 96 37 132 6.000510667128 6.00200933564 4 14 64 156 8584
+77	43290 75 37 52 6.000510667128 6.000554667128 3 0 4.4e-05 4.4e-05 1.936e-09
+78	43365 98 41 125 6.000511334256 6.001966002768 4 14 64 206 12484
+79	43463 73 41 102 6.000511334256 6.001384668512 3 14 64 142 8388
+80	43536 48 41 90 6.000511334256 6.001264668512 2 14 64 78 4292
+81	43584 73 41 102 6.000511334256 6.001384668512 3 14 64 142 8388
+82	43657 49 41 102 6.000511334256 6.001384668512 2 36 36 72 2592
+83	43706 153 42 131 6.000511334256 6.002008668512 6 0 4.4e-05 8.8e-05 3.872e-09
+84	43859 48 42 91 6.000511334256 6.001264668512 2 14 64 78 4292
+85	43907 48 42 91 6.000511334256 6.001264668512 2 14 64 78 4292
+86	43955 48 42 91 6.000511334256 6.001264668512 2 14 64 78 4292
+87	44003 49 54 66 6.000555334256 6.001219334256 2 14 320 334 102596
+88	44052 73 57 119 6.000556001384 6.00196533564 3 14 320 398 106692
+89	44125 62 57 98 6.000556001384 6.001384001384 2 5e-05 9.5334256e-05 0.000145334256 1.1588620367074e-08
+90	44187 75 66 85 6.001219334256 6.001263334256 3 0 4.4e-05 4.4e-05 1.936e-09
+91	44262 25 72 72 6.001220001384 6.001220001384 1 264 264 264 69696
+92	44287 25 74 74 6.001220001384 6.001220001384 1 264 264 264 69696
+93	44312 24 75 75 6.001220001384 6.001220001384 1 28 28 28 784
+94	44336 24 98 98 6.001384001384 6.001384001384 1 64 64 64 4096
+95	44360 24 98 98 6.001384001384 6.001384001384 1 64 64 64 4096
+96	44384 25 102 102 6.001384668512 6.001384668512 1 64 64 64 4096
+97	44409 25 102 102 6.001384668512 6.001384668512 1 64 64 64 4096
+98	44434 25 103 103 6.001384668512 6.001384668512 1 64 64 64 4096
+99	44459 25 103 103 6.001384668512 6.001384668512 1 64 64 64 4096
+100	44484 26 103 103 6.001384668512 6.001384668512 1 64 64 64 4096
+101	44510 26 103 103 6.001384668512 6.001384668512 1 64 64 64 4096
+102	44536 26 103 103 6.001384668512 6.001384668512 1 36 36 36 1296
+103	44562 26 107 107 6.001384668512 6.001384668512 1 28 28 28 784
+104	44588 26 109 109 6.001384668512 6.001384668512 1 36 36 36 1296
+105	44614 27 109 109 6.001384668512 6.001384668512 1 512 512 512 262144
+106	44641 828 109 109 0.1 6 60 0 0 0 0
+107	45469 50 109 111 6.001384668512 6.001914668512 2 0 1 1 1
+108	45519 52 109 111 6.001384668512 6.001914668512 2 0 512 512 262144
+109	45571 26 109 109 6.001384668512 6.001384668512 1 24 24 24 576
+110	45597 31 111 111 6.001914668512 6.001914668512 1 0.00053 0.00053 0.00053 2.809e-07
+111	45628 27 111 111 6.001914668512 6.001914668512 1 512 512 512 262144
+112	45655 828 111 111 0.1 6 60 0 0 0 0
+113	46483 32 111 111 6.001914668512 6.001914668512 1 24000000 24000000 24000000 5.76e+14
+114	46515 26 111 111 6.001914668512 6.001914668512 1 64 64 64 4096
+115	46541 100 112 117 6.001914668512 6.001964668512 4 0 2 4 6
+116	46641 26 116 116 6.001964668512 6.001964668512 1 64 64 64 4096
+117	46667 26 116 116 6.001964668512 6.001964668512 1 64 64 64 4096
+118	46693 26 116 116 6.001964668512 6.001964668512 1 64 64 64 4096
+119	46719 26 125 125 6.001966002768 6.001966002768 1 64 64 64 4096
+120	46745 26 125 125 6.001966002768 6.001966002768 1 64 64 64 4096
+37	46771 37 135 135 6.002010002768 6.002010002768 1 1528356.104234 1528356.104234 1528356.104234 2335872381349.3
+43	46808 37 135 135 6.002010002768 6.002010002768 1 1528356.104234 1528356.104234 1528356.104234 2335872381349.3
+61	46845 38 135 135 6.002010002768 6.002010002768 1 1783082.1216063 1783082.1216063 1783082.1216063 3179381852392.1
+70	46883 38 135 135 6.002010002768 6.002010002768 1 509452.03474466 509452.03474466 509452.03474466 259541375705.47
+106	46921 39 135 135 6.002010002768 6.002010002768 1 254726.01737233 254726.01737233 254726.01737233 64885343926.369
+112	46960 39 135 135 6.002010002768 6.002010002768 1 254726.01737233 254726.01737233 254726.01737233 64885343926.369
+

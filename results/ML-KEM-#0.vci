@@ -1,0 +1,525 @@
+file 285916 1775501454                                          
+version 3
+run ML-KEM-0-20260406-21:50:50-26250
+attr configname ML-KEM
+attr datetime 20260406-21:50:50
+attr datetimef 20260406-215050
+attr experiment ML-KEM
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network KriptoAgi
+attr processid 26250
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../inet4.5/images
+config description "ML-KEM Post-Kuantum Simulasyonu"
+config *.sensor.app[0].messageLength 1188B
+config *.sensor.udp.procDelay 0.5ms
+config network KriptoAgi
+config sim-time-limit 100s
+config *.sensor.numApps 1
+config *.sensor.app[0].typename UdpBasicApp
+config *.sensor.app[0].destAddresses "\"gateway\""
+config *.sensor.app[0].destPort 5000
+config *.sensor.app[0].sendInterval 1s
+config *.gateway.numApps 1
+config *.gateway.app[0].typename UdpSink
+config *.gateway.app[0].localPort 5000
+config *.configurator.typename Ipv4NetworkConfigurator
+config **.wlan[*].mgmt.typename Ieee80211MgmtAdhoc
+config **.wlan[*].agent.typename ""
+
+vector 0 KriptoAgi.sensor.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(frameSequenceStarted)-count(frameSequenceFinished))
+attr title "frame sequence active"
+vector 1 KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 2 KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 3 KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length"
+vector 4 KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(backoffStarted)-count(backoffStopped))
+attr title "backoff active"
+vector 5 KriptoAgi.sensor.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 6 KriptoAgi.sensor.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 7 KriptoAgi.sensor.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 8 KriptoAgi.gateway.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(frameSequenceStarted)-count(frameSequenceFinished))
+attr title "frame sequence active"
+vector 9 KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 10 KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 11 KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length"
+vector 12 KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(backoffStarted)-count(backoffStopped))
+attr title "backoff active"
+vector 13 KriptoAgi.gateway.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 14 KriptoAgi.gateway.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 15 KriptoAgi.gateway.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 16 KriptoAgi.sensor.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 17 KriptoAgi.sensor.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioChannelChanged
+attr title "Radio channel"
+vector 18 KriptoAgi.gateway.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 19 KriptoAgi.gateway.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioChannelChanged
+attr title "Radio channel"
+vector 20 KriptoAgi.sensor.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 21 KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.contention stateChanged:vector ETV
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode vector
+attr title "contention state changed"
+attr type enum
+vector 22 KriptoAgi.gateway.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 23 KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.contention stateChanged:vector ETV
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode vector
+attr title "contention state changed"
+attr type enum
+vector 24 KriptoAgi.sensor.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "contention window"
+vector 25 KriptoAgi.gateway.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "contention window"
+vector 26 KriptoAgi.sensor.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 27 KriptoAgi.sensor.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 28 KriptoAgi.sensor.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, packetBytes"
+vector 29 KriptoAgi.sensor.wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from upper layer, packetBytes"
+vector 30 KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 31 KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 32 KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "backoff periods"
+vector 33 KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 34 KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 35 KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 36 KriptoAgi.sensor.wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "datarates selected"
+vector 37 KriptoAgi.sensor.wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to lower layer, packetBytes"
+vector 38 KriptoAgi.sensor.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 39 KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent, packetBytes"
+vector 40 KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, packetBytes"
+vector 41 KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , packetBytes"
+vector 42 KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, packetBytes"
+vector 43 KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+vector 44 KriptoAgi.gateway.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from lower layer, packetBytes"
+vector 45 KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received, packetBytes"
+vector 46 KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, packetBytes"
+vector 47 KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, packetBytes"
+vector 48 KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, packetBytes"
+vector 49 KriptoAgi.gateway.wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to upper layer, packetBytes"
+vector 50 KriptoAgi.gateway.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, packetBytes"
+vector 51 KriptoAgi.gateway.wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from upper layer, packetBytes"
+vector 52 KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 53 KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 54 KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "backoff periods"
+vector 55 KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 56 KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 57 KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 58 KriptoAgi.gateway.wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "datarates selected"
+vector 59 KriptoAgi.gateway.wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to lower layer, packetBytes"
+vector 60 KriptoAgi.gateway.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 61 KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent, packetBytes"
+vector 62 KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, packetBytes"
+vector 63 KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, packetBytes"
+vector 64 KriptoAgi.gateway.wlan[0].mac.rx nav:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source navChanged
+attr title "network allocation vector"
+vector 65 KriptoAgi.sensor.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from lower layer, packetBytes"
+vector 66 KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received, packetBytes"
+vector 67 KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, packetBytes"
+vector 68 KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, packetBytes"
+vector 69 KriptoAgi.sensor.wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to upper layer, packetBytes"
+vector 70 KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, packetBytes"
+vector 71 KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerUnicast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, packetBytes"
+vector 72 KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+vector 73 KriptoAgi.sensor.wlan[0].mac.rx nav:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source navChanged
+attr title "network allocation vector"
+vector 74 KriptoAgi.gateway.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 75 KriptoAgi.gateway.app[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+vector 76 KriptoAgi.gateway.app[0] throughput:vector ETV
+attr recordingmode vector
+attr source throughput(packetReceived)
+attr title throughput
+attr unit bps
+vector 77 KriptoAgi.gateway.app[0] endToEndDelay:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source dataAge(packetReceived)
+attr title "end-to-end delay"
+attr unit s
+vector 78 KriptoAgi.gateway.app[0] rcvdPkSeqNo:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source appPkSeqNo(packetReceived)
+attr title "received packet sequence number"
+vector 79 KriptoAgi.sensor.app[0] throughput:vector ETV
+attr recordingmode vector
+attr source throughput(packetReceived)
+attr title throughput
+attr unit bps
+0	19481 3641 0 2920 0 100 203 0 1 101 101
+1	23122 2397 0 2920 0 100 207 0 1 101 101
+2	25519 2799 0 2920 0 100 207 0 10016 1002112 10032287744
+3	28318 3641 0 2920 0 100 203 0 1 101 101
+4	31959 2417 0 2919 0 100 206 0 1 102 102
+5	34376 8 0 0 0 0 1 0 0 0 0
+6	34384 8 0 0 0 0 1 0 0 0 0
+7	34392 8 0 0 0 0 1 0 0 0 0
+8	34400 60 0 44 0 1.000376001384 4 0 1 1 1
+9	34460 84 0 24 0 1.000280667128 7 0 1 1 1
+10	34544 93 0 24 0 1.000280667128 7 0 512 512 262144
+11	34637 64 0 44 0 1.000376001384 4 0 1 1 1
+12	34701 64 0 23 0 1.000280667128 4 0 1 1 1
+13	34765 2629 0 2901 0 99.000446667128 100 0 99 4950 328350
+14	37394 9 0 0 0 0 1 0 0 0 0
+15	37403 9 0 0 0 0 1 0 0 0 0
+16	37412 3311 0 2921 0 100 206 0 3 510 1326
+17	40723 9 0 0 0 0 1 0 0 0 0
+18	40732 5133 0 2909 0 99.000490667128 203 0 3 502 1304
+19	45865 9 0 0 0 0 1 0 0 0 0
+20	45874 8399 0 2921 0 100 404 0 3 502 1102
+21	54273 12972 0 2921 0 100 816 0 2 410 818
+22	67245 10267 0 2909 0 99.000490667128 403 0 3 505 1111
+23	77512 20534 0 2909 0 99.000490667128 806 0 2 4 8
+24	98046 10 0 0 0 0 1 31 31 31 961
+25	98056 10 0 0 0 0 1 31 31 31 961
+26	98066 1556 4 2914 1 100 100 1188 1188 118800 141134400
+27	99622 1556 6 2915 1 100 100 1196 1196 119600 143041600
+28	101178 10 7 7 1 1 1 28 28 28 784
+29	101188 1580 9 2918 1 100 101 36 1224 122436 149818896
+30	102768 1681 9 2918 1 100 101 512 10016 1002112 10032287744
+31	104449 14837 9 2918 0.1 100 1000 0 105280 9920960 994222387200
+32	119286 1349 9 2918 1 100 101 0 31 1492 30396
+33	120635 1287 11 2920 1 100 101 0 0.000474 0.000474 2.24676e-07
+34	121922 1682 11 2920 1 100 101 512 10016 1002112 10032287744
+35	123604 14847 11 2920 0.1 100 1000 0 105280 9920960 994222387200
+36	138451 2017 11 2920 1 100 102 24000000 24000000 2448000000 5.8752e+16
+37	140468 1605 11 2920 1 100 102 14 1252 125278 156754692
+38	142073 6568 12 2922 1 100 406 0 2 407 611
+39	148641 2280 15 2895 1.00005 99.000446 101 14 1252 124026 155187188
+40	150921 17 15 15 1.00005 1.00005 1 64 64 64 4096
+41	150938 17 15 15 1.00005 1.00005 1 64 64 64 4096
+42	150955 2280 15 2895 1.00005 99.000446 101 14 1252 124026 155187188
+43	153235 3837 15 2911 1.00005 99.000491334256 100 5e-05 0.000491334256 0.048692091344 2.3902025760788e-05
+44	157072 2875 18 2898 1.000050667128 99.000446667128 101 14 1252 124026 155187188
+45	159947 2875 18 2898 1.000050667128 99.000446667128 101 14 1252 124026 155187188
+46	162822 24 18 18 1.000050667128 1.000050667128 1 64 64 64 4096
+47	162846 24 18 18 1.000050667128 1.000050667128 1 64 64 64 4096
+48	162870 2875 18 2898 1.000050667128 99.000446667128 101 14 1252 124026 155187188
+49	165745 2851 18 2898 1.000050667128 99.000446667128 100 36 1224 121212 148320720
+50	168596 24 20 20 1.000050667128 1.000050667128 1 28 28 28 784
+51	168620 24 22 22 1.000050667128 1.000050667128 1 36 36 36 1296
+52	168644 25 22 22 1.000050667128 1.000050667128 1 512 512 512 262144
+53	168669 14685 22 2923 0.1 100 1000 0 5120 5120 26214400
+54	183354 23 22 22 1.000050667128 1.000050667128 1 9 9 9 81
+55	183377 29 24 24 1.000280667128 1.000280667128 1 0.00023 0.00023 0.00023 5.29e-08
+56	183406 25 24 24 1.000280667128 1.000280667128 1 512 512 512 262144
+57	183431 14685 24 2923 0.1 100 1000 0 5120 5120 26214400
+58	198116 3253 24 2898 1.000280667128 99.000446667128 100 24000000 24000000 2400000000 5.76e+16
+59	201369 2653 24 2903 1.000280667128 99.000456667128 100 14 64 1450 23500
+60	204022 10212 25 2909 1.000280667128 99.000490667128 400 0 2 400 600
+61	214234 2653 28 2908 1.000330667128 99.000490667128 100 14 64 1450 23500
+62	216887 2653 28 2908 1.000330667128 99.000490667128 100 14 64 1450 23500
+63	219540 2653 28 2908 1.000330667128 99.000490667128 100 14 64 1450 23500
+64	222193 75 28 40 1.000330667128 1.000374667128 3 0 4.4e-05 4.4e-05 1.936e-09
+65	222268 2653 31 2911 1.000331334256 99.000491334256 100 14 64 1450 23500
+66	224921 2653 31 2911 1.000331334256 99.000491334256 100 14 64 1450 23500
+67	227574 2653 31 2911 1.000331334256 99.000491334256 100 14 64 1450 23500
+68	230227 2653 31 2911 1.000331334256 99.000491334256 100 14 64 1450 23500
+69	232880 24 31 31 1.000331334256 1.000331334256 1 36 36 36 1296
+70	232904 2263 41 2895 1.000375334256 99.000446 100 14 1252 123962 155183092
+71	235167 2851 44 2898 1.000376001384 99.000446667128 100 14 1252 123962 155183092
+72	238018 35 44 44 1.000376001384 1.000376001384 1 9.5334256e-05 9.5334256e-05 9.5334256e-05 9.0886203670735e-09
+73	238053 6322 50 2907 1.001251334256 99.00049 297 0 4.4e-05 0.004356 1.91664e-07
+74	244375 2827 56 2901 1.001252001384 99.000446667128 99 1196 1196 118404 141611184
+75	247202 2827 57 2902 1.001252001384 99.000446667128 99 1188 1188 117612 139723056
+76	250029 14748 57 2923 0.1 100 1000 0 95040 9408960 894227558400
+77	264777 3817 57 2902 1.001252001384 99.000446667128 99 0.000446667128 0.001252001384 0.045025379928 2.1119636742643e-05
+78	268594 2619 57 2902 1.001252001384 99.000446667128 99 0 98 4851 318549
+79	271213 14702 2923 2923 0.1 100 1000 0 0 0 0
+

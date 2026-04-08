@@ -1,0 +1,3454 @@
+version 3
+run RSA-0-20260406-21:53:16-26328
+attr configname RSA
+attr datetime 20260406-21:53:16
+attr datetimef 20260406-215316
+attr experiment RSA
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network KriptoAgi
+attr processid 26328
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../inet4.5/images
+config description "RSA-2048 Simulasyonu"
+config *.sensor.app[0].messageLength 256B
+config *.sensor.udp.procDelay 5.0ms
+config network KriptoAgi
+config sim-time-limit 100s
+config *.sensor.numApps 1
+config *.sensor.app[0].typename UdpBasicApp
+config *.sensor.app[0].destAddresses "\"gateway\""
+config *.sensor.app[0].destPort 5000
+config *.sensor.app[0].sendInterval 1s
+config *.gateway.numApps 1
+config *.gateway.app[0].typename UdpSink
+config *.gateway.app[0].localPort 5000
+config *.configurator.typename Ipv4NetworkConfigurator
+config **.wlan[*].mgmt.typename Ieee80211MgmtAdhoc
+config **.wlan[*].agent.typename ""
+
+par KriptoAgi.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator\""
+par KriptoAgi.configurator minLinkWeight 0.001
+par KriptoAgi.configurator configureIsolatedNetworksSeparatly false
+par KriptoAgi.configurator config "<config>...</config> at content:1"
+par KriptoAgi.configurator assignAddresses true
+par KriptoAgi.configurator assignUniqueAddresses true
+par KriptoAgi.configurator assignDisjunctSubnetAddresses true
+par KriptoAgi.configurator addStaticRoutes true
+par KriptoAgi.configurator addDefaultRoutes true
+par KriptoAgi.configurator addSubnetRoutes true
+par KriptoAgi.configurator addDirectRoutes true
+par KriptoAgi.configurator optimizeRoutes true
+par KriptoAgi.configurator dumpTopology false
+par KriptoAgi.configurator dumpLinks false
+par KriptoAgi.configurator dumpAddresses false
+par KriptoAgi.configurator dumpRoutes false
+par KriptoAgi.configurator dumpConfig "\"\""
+par KriptoAgi.radioMedium.propagation typename "\"inet.physicallayer.wireless.common.propagation.ConstantSpeedPropagation\""
+par KriptoAgi.radioMedium.propagation propagationSpeed 2.99792e+08mps
+attr unit mps
+par KriptoAgi.radioMedium.propagation ignoreMovementDuringTransmission true
+par KriptoAgi.radioMedium.propagation ignoreMovementDuringPropagation true
+par KriptoAgi.radioMedium.propagation ignoreMovementDuringReception true
+scalar KriptoAgi.radioMedium.propagation "Arrival computation count" 202
+par KriptoAgi.radioMedium.analogModel typename "\"inet.physicallayer.wireless.common.analogmodel.packetlevel.ScalarAnalogModel\""
+par KriptoAgi.radioMedium.analogModel ignorePartialInterference false
+par KriptoAgi.radioMedium.backgroundNoise typename "\"inet.physicallayer.wireless.common.backgroundnoise.IsotropicScalarBackgroundNoise\""
+par KriptoAgi.radioMedium.backgroundNoise power -110dBm
+attr unit dBm
+par KriptoAgi.radioMedium.backgroundNoise bandwidth "nan Hz"
+attr unit Hz
+par KriptoAgi.radioMedium.pathLoss typename "\"inet.physicallayer.wireless.common.pathloss.FreeSpacePathLoss\""
+par KriptoAgi.radioMedium.pathLoss alpha 2
+par KriptoAgi.radioMedium.pathLoss systemLoss 0dB
+attr unit dB
+par KriptoAgi.radioMedium.mediumLimitCache typename "\"inet.physicallayer.wireless.common.medium.MediumLimitCache\""
+par KriptoAgi.radioMedium.mediumLimitCache centerFrequency 2.4e+09Hz
+attr unit Hz
+par KriptoAgi.radioMedium.mediumLimitCache maxSpeed "nan mps"
+attr unit mps
+par KriptoAgi.radioMedium.mediumLimitCache maxTransmissionPower "nan W"
+attr unit W
+par KriptoAgi.radioMedium.mediumLimitCache minInterferencePower -110dBm
+attr unit dBm
+par KriptoAgi.radioMedium.mediumLimitCache minReceptionPower -85dBm
+attr unit dBm
+par KriptoAgi.radioMedium.mediumLimitCache maxAntennaGain 0dB
+attr unit dB
+par KriptoAgi.radioMedium.mediumLimitCache minInterferenceTime 1e-12s
+attr unit s
+par KriptoAgi.radioMedium.mediumLimitCache maxTransmissionDuration 0.01s
+attr unit s
+par KriptoAgi.radioMedium.mediumLimitCache maxCommunicationRange "nan m"
+attr unit m
+par KriptoAgi.radioMedium.mediumLimitCache maxInterferenceRange "nan m"
+attr unit m
+par KriptoAgi.radioMedium.communicationCache typename "\"inet.physicallayer.wireless.common.communicationcache.VectorCommunicationCache\""
+par KriptoAgi.radioMedium typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadioMedium\""
+par KriptoAgi.radioMedium physicalEnvironmentModule "\"physicalEnvironment\""
+par KriptoAgi.radioMedium signalAnalogRepresentation "\"scalar\""
+attr enum unitDisk,scalar,dimensional
+par KriptoAgi.radioMedium rangeFilter "\"\""
+par KriptoAgi.radioMedium radioModeFilter false
+par KriptoAgi.radioMedium listeningFilter false
+par KriptoAgi.radioMedium macAddressFilter false
+par KriptoAgi.radioMedium recordTransmissionLog false
+par KriptoAgi.radioMedium recordReceptionLog false
+scalar KriptoAgi.radioMedium "transmission count" 202
+scalar KriptoAgi.radioMedium "signal send count" 202
+scalar KriptoAgi.radioMedium "reception computation count" 201
+scalar KriptoAgi.radioMedium "interference computation count" 808
+scalar KriptoAgi.radioMedium "reception decision computation count" 201
+scalar KriptoAgi.radioMedium "listening decision computation count" 406
+scalar KriptoAgi.radioMedium "reception cache hit" 85.714285714286
+attr unit %
+scalar KriptoAgi.radioMedium "interference cache hit" 66.666666666667
+attr unit %
+scalar KriptoAgi.radioMedium "noise cache hit" 0
+attr unit %
+scalar KriptoAgi.radioMedium "snir cache hit" 50
+attr unit %
+scalar KriptoAgi.radioMedium "reception decision cache hit" 50
+attr unit %
+scalar KriptoAgi.radioMedium "reception result cache hit" 0
+attr unit %
+par KriptoAgi.sensor.radioIn[0].channel typename "\"ned.IdealChannel\""
+par KriptoAgi.sensor.mobility typename "\"inet.mobility.static.StationaryMobility\""
+par KriptoAgi.sensor.mobility subjectModule "\"^\""
+par KriptoAgi.sensor.mobility coordinateSystemModule "\"\""
+par KriptoAgi.sensor.mobility displayStringTextFormat "\"p: %p\\nv: %v\""
+attr mutable ""
+par KriptoAgi.sensor.mobility updateDisplayString true
+par KriptoAgi.sensor.mobility constraintAreaMinX "-inf m"
+attr unit m
+par KriptoAgi.sensor.mobility constraintAreaMinY "-inf m"
+attr unit m
+par KriptoAgi.sensor.mobility constraintAreaMinZ "-inf m"
+attr unit m
+par KriptoAgi.sensor.mobility constraintAreaMaxX "inf m"
+attr unit m
+par KriptoAgi.sensor.mobility constraintAreaMaxY "inf m"
+attr unit m
+par KriptoAgi.sensor.mobility constraintAreaMaxZ "inf m"
+attr unit m
+par KriptoAgi.sensor.mobility initialX "nan m"
+attr unit m
+par KriptoAgi.sensor.mobility initialY "nan m"
+attr unit m
+par KriptoAgi.sensor.mobility initialZ 0m
+attr unit m
+par KriptoAgi.sensor.mobility initialLatitude "nan deg"
+attr unit deg
+par KriptoAgi.sensor.mobility initialLongitude "nan deg"
+attr unit deg
+par KriptoAgi.sensor.mobility initialAltitude 0m
+attr unit m
+par KriptoAgi.sensor.mobility initialHeading 0deg
+attr unit deg
+par KriptoAgi.sensor.mobility initialElevation 0deg
+attr unit deg
+par KriptoAgi.sensor.mobility initialBank 0deg
+attr unit deg
+par KriptoAgi.sensor.mobility initFromDisplayString true
+par KriptoAgi.sensor.mobility updateFromDisplayString true
+par KriptoAgi.sensor.interfaceTable typename "\"inet.networklayer.common.InterfaceTable\""
+par KriptoAgi.sensor.interfaceTable displayAddresses false
+par KriptoAgi.sensor.cb typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.sensor.cb displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.sensor.cb forwardServiceRegistration true
+par KriptoAgi.sensor.cb forwardProtocolRegistration true
+par KriptoAgi.sensor.bl typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.sensor.bl displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.sensor.bl forwardServiceRegistration true
+par KriptoAgi.sensor.bl forwardProtocolRegistration true
+par KriptoAgi.sensor.li typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.sensor.li displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.sensor.li forwardServiceRegistration true
+par KriptoAgi.sensor.li forwardProtocolRegistration true
+par KriptoAgi.sensor.lo[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.sensor.lo[0].lo.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.sensor.lo[0].lo typename "\"inet.linklayer.loopback.Loopback\""
+par KriptoAgi.sensor.lo[0].lo interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+par KriptoAgi.sensor.lo[0].lo mtu 4470B
+attr unit B
+scalar KriptoAgi.sensor.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar KriptoAgi.sensor.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar KriptoAgi.sensor.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar KriptoAgi.sensor.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+par KriptoAgi.sensor.lo[0] typename "\"inet.linklayer.loopback.LoopbackInterface\""
+par KriptoAgi.sensor.lo[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par KriptoAgi.sensor.lo[0] recordPcap false
+par KriptoAgi.sensor.lo[0] numPcapRecorders 0
+par KriptoAgi.sensor.lo[0] interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+scalar KriptoAgi.sensor.lo[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar KriptoAgi.sensor.lo[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar KriptoAgi.sensor.lo[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar KriptoAgi.sensor.lo[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par KriptoAgi.sensor.wlan[0].radioIn.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.sensor.wlan[0].llc.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.sensor.wlan[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.sensor.wlan[0].mib typename "\"inet.linklayer.ieee80211.mib.Ieee80211Mib\""
+par KriptoAgi.sensor.wlan[0].llc typename "\"inet.linklayer.ieee80211.llc.Ieee80211LlcLpd\""
+par KriptoAgi.sensor.wlan[0].llc registerProtocol false
+par KriptoAgi.sensor.wlan[0].mgmt typename "\"inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAdhoc\""
+par KriptoAgi.sensor.wlan[0].mgmt mibModule "\"KriptoAgi.sensor.wlan[0].mib\""
+par KriptoAgi.sensor.wlan[0].mgmt macModule "\"KriptoAgi.sensor.wlan[0].mac\""
+par KriptoAgi.sensor.wlan[0].mgmt interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue typename "\"inet.linklayer.ieee80211.mac.queue.PendingQueue\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue displayStringTextFormat "\"contains %p pk (%l) pushed %u\\npulled %o removed %r dropped %d\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue packetCapacity 100
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue dataCapacity -1b
+attr unit b
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue dropperClass "\"inet::queueing::PacketAtCollectionEndDropper\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue comparatorClass "\"inet::ieee80211::MgmtOverDataComparator\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue bufferModule "\"\""
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:last 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode last
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, last"
+attr unit pk
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:max 1
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, max"
+attr unit pk
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:timeavg 4.74e-06
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, timeavg"
+attr unit pk
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:last 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode last
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, last"
+attr unit b
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:max 2560
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, max"
+attr unit b
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:timeavg 0.0121344
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, timeavg"
+attr unit b
+statistic KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:histogram
+field count 101
+field mean 4.6930693069307e-06
+field stddev 4.7164762815953e-05
+field min 0
+field max 0.000474
+field sum 0.000474
+field sqrsum 2.24676e-07
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+bin	-inf	0
+bin	0	100
+bin	1e-05	0
+bin	2e-05	0
+bin	3e-05	0
+bin	4e-05	0
+bin	5e-05	0
+bin	6e-05	0
+bin	7e-05	0
+bin	8e-05	0
+bin	9e-05	0
+bin	0.0001	0
+bin	0.00011	0
+bin	0.00012	0
+bin	0.00013	0
+bin	0.00014	0
+bin	0.00015	0
+bin	0.00016	0
+bin	0.00017	0
+bin	0.00018	0
+bin	0.00019	0
+bin	0.0002	0
+bin	0.00021	0
+bin	0.00022	0
+bin	0.00023	0
+bin	0.00024	0
+bin	0.00025	0
+bin	0.00026	0
+bin	0.00027	0
+bin	0.00028	0
+bin	0.00029	0
+bin	0.0003	0
+bin	0.00031	0
+bin	0.00032	0
+bin	0.00033	0
+bin	0.00034	0
+bin	0.00035	0
+bin	0.00036	0
+bin	0.00037	0
+bin	0.00038	0
+bin	0.00039	0
+bin	0.0004	0
+bin	0.00041	0
+bin	0.00042	0
+bin	0.00043	0
+bin	0.00044	0
+bin	0.00045	0
+bin	0.00046	0
+bin	0.00047	1
+bin	0.00048	0
+bin	0.00049	0
+bin	0.0005	0
+bin	0.00051	0
+bin	0.00052	0
+bin	0.00053	0
+bin	0.00054	0
+bin	0.00055	0
+bin	0.00056	0
+bin	0.00057	0
+bin	0.00058	0
+bin	0.00059	0
+bin	0.0006	0
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPackets:count 101
+attr recordingmode count
+attr source packetPulled
+attr title "outgoing packets, count"
+attr unit pk
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:sum 256512
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths, sum"
+attr unit b
+statistic KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:histogram
+field count 101
+field mean 2539.7227722772
+field stddev 203.78361655501
+field min 512
+field max 2560
+field sum 256512
+field sqrsum 655622144
+attr interpolationmode none
+attr recordingmode histogram
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+bin	-inf	0
+bin	0	0
+bin	50	0
+bin	100	0
+bin	150	0
+bin	200	0
+bin	250	0
+bin	300	0
+bin	350	0
+bin	400	0
+bin	450	0
+bin	500	1
+bin	550	0
+bin	600	0
+bin	650	0
+bin	700	0
+bin	750	0
+bin	800	0
+bin	850	0
+bin	900	0
+bin	950	0
+bin	1000	0
+bin	1050	0
+bin	1100	0
+bin	1150	0
+bin	1200	0
+bin	1250	0
+bin	1300	0
+bin	1350	0
+bin	1400	0
+bin	1450	0
+bin	1500	0
+bin	1550	0
+bin	1600	0
+bin	1650	0
+bin	1700	0
+bin	1750	0
+bin	1800	0
+bin	1850	0
+bin	1900	0
+bin	1950	0
+bin	2000	0
+bin	2050	0
+bin	2100	0
+bin	2150	0
+bin	2200	0
+bin	2250	0
+bin	2300	0
+bin	2350	0
+bin	2400	0
+bin	2450	0
+bin	2500	0
+bin	2550	100
+bin	2600	0
+bin	2650	0
+bin	2700	0
+bin	2750	0
+bin	2800	0
+bin	2850	0
+bin	2900	0
+bin	2950	0
+bin	3000	0
+bin	3050	0
+bin	3100	0
+statistic KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue flowQueueingTime:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(demuxFlow(packetPulled))
+attr title "flow queueing times"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPackets:count 101
+attr recordingmode count
+attr source packetPushStarted
+attr title "incoming packets, count"
+attr unit pk
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:sum 256512
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths, sum"
+attr unit b
+statistic KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:histogram
+field count 101
+field mean 2539.7227722772
+field stddev 203.78361655501
+field min 512
+field max 2560
+field sum 256512
+field sqrsum 655622144
+attr interpolationmode none
+attr recordingmode histogram
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+bin	-inf	0
+bin	0	0
+bin	50	0
+bin	100	0
+bin	150	0
+bin	200	0
+bin	250	0
+bin	300	0
+bin	350	0
+bin	400	0
+bin	450	0
+bin	500	1
+bin	550	0
+bin	600	0
+bin	650	0
+bin	700	0
+bin	750	0
+bin	800	0
+bin	850	0
+bin	900	0
+bin	950	0
+bin	1000	0
+bin	1050	0
+bin	1100	0
+bin	1150	0
+bin	1200	0
+bin	1250	0
+bin	1300	0
+bin	1350	0
+bin	1400	0
+bin	1450	0
+bin	1500	0
+bin	1550	0
+bin	1600	0
+bin	1650	0
+bin	1700	0
+bin	1750	0
+bin	1800	0
+bin	1850	0
+bin	1900	0
+bin	1950	0
+bin	2000	0
+bin	2050	0
+bin	2100	0
+bin	2150	0
+bin	2200	0
+bin	2250	0
+bin	2300	0
+bin	2350	0
+bin	2400	0
+bin	2450	0
+bin	2500	0
+bin	2550	100
+bin	2600	0
+bin	2650	0
+bin	2700	0
+bin	2750	0
+bin	2800	0
+bin	2850	0
+bin	2900	0
+bin	2950	0
+bin	3000	0
+bin	3050	0
+bin	3100	0
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue droppedPacketsQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "dropped packets: queue overflow, count"
+attr unit pk
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue droppedPacketLengthsQueueOverflow:sum 0
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow, sum"
+attr unit b
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames typename "\"inet.linklayer.ieee80211.mac.queue.InProgressFrames\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames pendingQueueModule "\"^.pendingQueue\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames originatorMacDataServiceModule "\"^.^.originatorMacDataService\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames ackHandlerModule "\"^.^.ackHandler\""
+statistic KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:histogram
+field count 100
+field mean 0.00017804091344
+field stddev 1.2933425599999e-05
+field min 5e-05
+field max 0.000179334256
+field sum 0.017804091344
+field sqrsum 3.1864167621323e-06
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+bin	-inf	0
+bin	1.6e-05	0
+bin	1.8e-05	0
+bin	2e-05	0
+bin	2.2e-05	0
+bin	2.4e-05	0
+bin	2.6e-05	0
+bin	2.8e-05	0
+bin	3e-05	0
+bin	3.2e-05	0
+bin	3.4e-05	0
+bin	3.6e-05	0
+bin	3.8e-05	0
+bin	4e-05	0
+bin	4.2e-05	0
+bin	4.4e-05	0
+bin	4.6e-05	0
+bin	4.8e-05	1
+bin	5e-05	0
+bin	5.2e-05	0
+bin	5.4e-05	0
+bin	5.6e-05	0
+bin	5.8e-05	0
+bin	6e-05	0
+bin	6.2e-05	0
+bin	6.4e-05	0
+bin	6.6e-05	0
+bin	6.8e-05	0
+bin	7e-05	0
+bin	7.2e-05	0
+bin	7.4e-05	0
+bin	7.6e-05	0
+bin	7.8e-05	0
+bin	8e-05	0
+bin	8.2e-05	0
+bin	8.4e-05	0
+bin	8.6e-05	0
+bin	8.8e-05	0
+bin	9e-05	0
+bin	9.2e-05	0
+bin	9.4e-05	0
+bin	9.6e-05	0
+bin	9.8e-05	0
+bin	0.0001	0
+bin	0.000102	0
+bin	0.000104	0
+bin	0.000106	0
+bin	0.000108	0
+bin	0.00011	0
+bin	0.000112	0
+bin	0.000114	0
+bin	0.000116	0
+bin	0.000118	0
+bin	0.00012	0
+bin	0.000122	0
+bin	0.000124	0
+bin	0.000126	0
+bin	0.000128	0
+bin	0.00013	0
+bin	0.000132	0
+bin	0.000134	0
+bin	0.000136	0
+bin	0.000138	0
+bin	0.00014	0
+bin	0.000142	0
+bin	0.000144	0
+bin	0.000146	0
+bin	0.000148	0
+bin	0.00015	0
+bin	0.000152	0
+bin	0.000154	0
+bin	0.000156	0
+bin	0.000158	0
+bin	0.00016	0
+bin	0.000162	0
+bin	0.000164	0
+bin	0.000166	0
+bin	0.000168	0
+bin	0.00017	0
+bin	0.000172	0
+bin	0.000174	0
+bin	0.000176	0
+bin	0.000178	99
+bin	0.00018	0
+bin	0.000182	0
+bin	0.000184	0
+bin	0.000186	0
+bin	0.000188	0
+bin	0.00019	0
+bin	0.000192	0
+bin	0.000194	0
+bin	0.000196	0
+bin	0.000198	0
+bin	0.0002	0
+bin	0.000202	0
+bin	0.000204	0
+bin	0.000206	0
+bin	0.000208	0
+bin	0.00021	0
+bin	0.000212	0
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:max 1
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length, max"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:timeavg 0.00017804091344
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length, timeavg"
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.contention typename "\"inet.linklayer.ieee80211.mac.contention.Contention\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.contention initialChannelBusy true
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.contention backoffOptimization true
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.contention channelAccessGranted:count 101
+attr recordingmode count
+attr title "channel access granted, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.contention stateChanged:count 816
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode count
+attr title "contention state changed, count"
+attr type enum
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess typename "\"inet.linklayer.ieee80211.mac.channelaccess.Dcaf\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess difsn -1
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess cwMin -1
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess cwMax -1
+par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess rxModule "\"^.^.rx\""
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess channelOwnershipChanged:count 201
+attr interpolationmode sample-hold
+attr recordingmode count
+attr title "channel ownership, count"
+par KriptoAgi.sensor.wlan[0].mac.dcf.originatorMacDataService.fragmentationPolicy typename "\"inet.linklayer.ieee80211.mac.fragmentation.BasicFragmentationPolicy\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.originatorMacDataService.fragmentationPolicy fragmentationThreshold 1500B
+attr unit B
+par KriptoAgi.sensor.wlan[0].mac.dcf.originatorMacDataService typename "\"inet.linklayer.ieee80211.mac.originator.OriginatorMacDataService\""
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.originatorMacDataService packetAggregated:count 0
+attr recordingmode count
+attr title "packets aggregated, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.originatorMacDataService packetFragmented:count 0
+attr recordingmode count
+attr title "packets fragmented, count"
+par KriptoAgi.sensor.wlan[0].mac.dcf.recipientMacDataService typename "\"inet.linklayer.ieee80211.mac.recipient.RecipientMacDataService\""
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.recipientMacDataService packetDeaggregated:count 0
+attr recordingmode count
+attr title "packets deaggregated, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.recipientMacDataService packetDefragmented:count 1
+attr recordingmode count
+attr title "packets defragmented, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+par KriptoAgi.sensor.wlan[0].mac.dcf.rateSelection typename "\"inet.linklayer.ieee80211.mac.rateselection.RateSelection\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.rateSelection rateControlModule "\"^.rateControl\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.rateSelection multicastFrameBitrate -1bps
+attr unit bps
+par KriptoAgi.sensor.wlan[0].mac.dcf.rateSelection responseAckFrameBitrate -1bps
+attr unit bps
+par KriptoAgi.sensor.wlan[0].mac.dcf.rateSelection responseCtsFrameBitrate -1bps
+attr unit bps
+par KriptoAgi.sensor.wlan[0].mac.dcf.rateSelection dataFrameBitrate -1bps
+attr unit bps
+par KriptoAgi.sensor.wlan[0].mac.dcf.rateSelection dataFrameBandwidth "nan Hz"
+attr unit Hz
+par KriptoAgi.sensor.wlan[0].mac.dcf.rateSelection dataFrameNumSpatialStreams -1
+par KriptoAgi.sensor.wlan[0].mac.dcf.rateSelection mgmtFrameBitrate -1bps
+attr unit bps
+par KriptoAgi.sensor.wlan[0].mac.dcf.rateSelection controlFrameBitrate -1bps
+attr unit bps
+par KriptoAgi.sensor.wlan[0].mac.dcf.recoveryProcedure typename "\"inet.linklayer.ieee80211.mac.originator.NonQosRecoveryProcedure\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.recoveryProcedure cwCalculatorModule "\"^.channelAccess\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.recoveryProcedure rtsPolicyModule "\"^.rtsPolicy\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.recoveryProcedure shortRetryLimit 7
+par KriptoAgi.sensor.wlan[0].mac.dcf.recoveryProcedure longRetryLimit 4
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.recoveryProcedure retryLimitReached:count 0
+attr recordingmode count
+attr title "retry limit reached, count"
+par KriptoAgi.sensor.wlan[0].mac.dcf.originatorProtectionMechanism typename "\"inet.linklayer.ieee80211.mac.protectionmechanism.OriginatorProtectionMechanism\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.originatorProtectionMechanism rateSelectionModule "\"^.rateSelection\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.ackHandler typename "\"inet.linklayer.ieee80211.mac.originator.AckHandler\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.originatorAckPolicy typename "\"inet.linklayer.ieee80211.mac.originator.OriginatorAckPolicy\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.originatorAckPolicy rateSelectionModule "\"^.rateSelection\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.originatorAckPolicy ackTimeout -1s
+attr unit s
+par KriptoAgi.sensor.wlan[0].mac.dcf.recipientAckPolicy typename "\"inet.linklayer.ieee80211.mac.recipient.RecipientAckPolicy\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.recipientAckPolicy rateSelectionModule "\"^.rateSelection\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.rtsPolicy typename "\"inet.linklayer.ieee80211.mac.originator.RtsPolicy\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.rtsPolicy rateSelectionModule "\"^.rateSelection\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.rtsPolicy ctsTimeout -1s
+attr unit s
+par KriptoAgi.sensor.wlan[0].mac.dcf.rtsPolicy rtsThreshold 2346B
+attr unit B
+par KriptoAgi.sensor.wlan[0].mac.dcf.ctsPolicy typename "\"inet.linklayer.ieee80211.mac.recipient.CtsPolicy\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.ctsPolicy rxModule "\"^.^.rx\""
+par KriptoAgi.sensor.wlan[0].mac.dcf.ctsPolicy rateSelectionModule "\"^.rateSelection\""
+par KriptoAgi.sensor.wlan[0].mac.dcf typename "\"inet.linklayer.ieee80211.mac.coordinationfunction.Dcf\""
+par KriptoAgi.sensor.wlan[0].mac.dcf rxModule "\"^.rx\""
+par KriptoAgi.sensor.wlan[0].mac.dcf txModule "\"^.tx\""
+scalar KriptoAgi.sensor.wlan[0].mac.dcf frameSequenceFinished:count 100
+attr recordingmode count
+attr title "finished frame sequences, count"
+statistic KriptoAgi.sensor.wlan[0].mac.dcf frameSequenceDuration:histogram
+field count 100
+field mean 0.00017804091344
+field stddev 1.2933425599999e-05
+field min 5e-05
+field max 0.000179334256
+field sum 0.017804091344
+field sqrsum 3.1864167621323e-06
+attr recordingmode histogram
+attr source frameSequenceDuration(frameSequenceFinished)
+attr title "frame sequence durations"
+bin	-inf	0
+bin	1.6e-05	0
+bin	1.8e-05	0
+bin	2e-05	0
+bin	2.2e-05	0
+bin	2.4e-05	0
+bin	2.6e-05	0
+bin	2.8e-05	0
+bin	3e-05	0
+bin	3.2e-05	0
+bin	3.4e-05	0
+bin	3.6e-05	0
+bin	3.8e-05	0
+bin	4e-05	0
+bin	4.2e-05	0
+bin	4.4e-05	0
+bin	4.6e-05	0
+bin	4.8e-05	1
+bin	5e-05	0
+bin	5.2e-05	0
+bin	5.4e-05	0
+bin	5.6e-05	0
+bin	5.8e-05	0
+bin	6e-05	0
+bin	6.2e-05	0
+bin	6.4e-05	0
+bin	6.6e-05	0
+bin	6.8e-05	0
+bin	7e-05	0
+bin	7.2e-05	0
+bin	7.4e-05	0
+bin	7.6e-05	0
+bin	7.8e-05	0
+bin	8e-05	0
+bin	8.2e-05	0
+bin	8.4e-05	0
+bin	8.6e-05	0
+bin	8.8e-05	0
+bin	9e-05	0
+bin	9.2e-05	0
+bin	9.4e-05	0
+bin	9.6e-05	0
+bin	9.8e-05	0
+bin	0.0001	0
+bin	0.000102	0
+bin	0.000104	0
+bin	0.000106	0
+bin	0.000108	0
+bin	0.00011	0
+bin	0.000112	0
+bin	0.000114	0
+bin	0.000116	0
+bin	0.000118	0
+bin	0.00012	0
+bin	0.000122	0
+bin	0.000124	0
+bin	0.000126	0
+bin	0.000128	0
+bin	0.00013	0
+bin	0.000132	0
+bin	0.000134	0
+bin	0.000136	0
+bin	0.000138	0
+bin	0.00014	0
+bin	0.000142	0
+bin	0.000144	0
+bin	0.000146	0
+bin	0.000148	0
+bin	0.00015	0
+bin	0.000152	0
+bin	0.000154	0
+bin	0.000156	0
+bin	0.000158	0
+bin	0.00016	0
+bin	0.000162	0
+bin	0.000164	0
+bin	0.000166	0
+bin	0.000168	0
+bin	0.00017	0
+bin	0.000172	0
+bin	0.000174	0
+bin	0.000176	0
+bin	0.000178	99
+bin	0.00018	0
+bin	0.000182	0
+bin	0.000184	0
+bin	0.000186	0
+bin	0.000188	0
+bin	0.00019	0
+bin	0.000192	0
+bin	0.000194	0
+bin	0.000196	0
+bin	0.000198	0
+bin	0.0002	0
+bin	0.000202	0
+bin	0.000204	0
+bin	0.000206	0
+bin	0.000208	0
+bin	0.00021	0
+bin	0.000212	0
+statistic KriptoAgi.sensor.wlan[0].mac.dcf frameSequenceNumPackets:histogram
+field count 100
+field mean 1.99
+field stddev 0.1
+field min 1
+field max 2
+field sum 199
+field sqrsum 397
+attr recordingmode histogram
+attr source frameSequenceNumPackets(frameSequenceFinished)
+attr title "frame sequences: number of packets"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	99
+bin	3	0
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeer:count 100
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeer:sum(packetBytes) 1450
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeerUnicast:count 100
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeerUnicast:sum(packetBytes) 1450
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeerMulticast:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeerMulticast:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeerWithRetry:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:count 100
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:sum(packetBytes) 1450
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeer:count 101
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeer:sum(packetBytes) 31758
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerUnicast:count 100
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerUnicast:sum(packetBytes) 31694
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerMulticast:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerMulticast:sum(packetBytes) 64
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerBroadcast:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerBroadcast:sum(packetBytes) 64
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerWithRetry:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerWithoutRetry:count 101
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerWithoutRetry:sum(packetBytes) 31758
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetDrop:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropped
+attr title "packet drops, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac.dcf linkBroken:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "link breaks, count"
+par KriptoAgi.sensor.wlan[0].mac.ds typename "\"inet.linklayer.ieee80211.mac.Ds\""
+par KriptoAgi.sensor.wlan[0].mac.ds mibModule "\"KriptoAgi.sensor.wlan[0].mib\""
+par KriptoAgi.sensor.wlan[0].mac.rx typename "\"inet.linklayer.ieee80211.mac.Rx\""
+par KriptoAgi.sensor.wlan[0].mac.tx typename "\"inet.linklayer.ieee80211.mac.Tx\""
+par KriptoAgi.sensor.wlan[0].mac.tx rxModule "\"^.rx\""
+par KriptoAgi.sensor.wlan[0].mac typename "\"inet.linklayer.ieee80211.mac.Ieee80211Mac\""
+par KriptoAgi.sensor.wlan[0].mac interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+par KriptoAgi.sensor.wlan[0].mac mibModule "\"KriptoAgi.sensor.wlan[0].mib\""
+par KriptoAgi.sensor.wlan[0].mac modeSet "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par KriptoAgi.sensor.wlan[0].mac fcsMode "\"declared\""
+attr enum declared,computed
+par KriptoAgi.sensor.wlan[0].mac initialRadioMode "\"receiver\""
+attr enum off,sleep,receiver,transmitter,transceiver
+par KriptoAgi.sensor.wlan[0].mac mtu 2304B
+attr unit B
+par KriptoAgi.sensor.wlan[0].mac qosStation false
+scalar KriptoAgi.sensor.wlan[0].mac packetReceivedFromLower:count 100
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received from lower layer, count"
+scalar KriptoAgi.sensor.wlan[0].mac packetReceivedFromLower:sum(packetBytes) 1450
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac packetSentToLower:count 102
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent to lower layer, count"
+scalar KriptoAgi.sensor.wlan[0].mac packetSentToLower:sum(packetBytes) 32078
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac packetReceivedFromUpper:count 101
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received from upper layer, count"
+scalar KriptoAgi.sensor.wlan[0].mac packetReceivedFromUpper:sum(packetBytes) 29236
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received from upper layer, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac packetSentToUpper:count 1
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent to upper layer, count"
+scalar KriptoAgi.sensor.wlan[0].mac packetSentToUpper:sum(packetBytes) 36
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent to upper layer, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac packetDrop:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropped
+attr title "packet drops, count"
+scalar KriptoAgi.sensor.wlan[0].mac packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, count"
+scalar KriptoAgi.sensor.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar KriptoAgi.sensor.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar KriptoAgi.sensor.wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar KriptoAgi.sensor.wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar KriptoAgi.sensor.wlan[0].mac packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac packetDropOther:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, count"
+scalar KriptoAgi.sensor.wlan[0].mac packetDropOther:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "link breaks, count"
+par KriptoAgi.sensor.wlan[0].radio.antenna typename "\"inet.physicallayer.wireless.common.antenna.IsotropicAntenna\""
+par KriptoAgi.sensor.wlan[0].radio.antenna mobilityModule "\"^.^.^.mobility\""
+par KriptoAgi.sensor.wlan[0].radio.antenna numAntennas 1
+par KriptoAgi.sensor.wlan[0].radio.transmitter typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarTransmitter\""
+par KriptoAgi.sensor.wlan[0].radio.transmitter preambleDuration -1s
+attr unit s
+par KriptoAgi.sensor.wlan[0].radio.transmitter headerLength 192b
+attr unit b
+par KriptoAgi.sensor.wlan[0].radio.transmitter bitrate -1bps
+attr unit bps
+par KriptoAgi.sensor.wlan[0].radio.transmitter power 0.02W
+attr unit W
+par KriptoAgi.sensor.wlan[0].radio.transmitter centerFrequency 2.412e+09Hz
+attr unit Hz
+par KriptoAgi.sensor.wlan[0].radio.transmitter bandwidth "nan Hz"
+attr unit Hz
+par KriptoAgi.sensor.wlan[0].radio.transmitter codeRate 1
+par KriptoAgi.sensor.wlan[0].radio.transmitter modulation "\"BPSK\""
+par KriptoAgi.sensor.wlan[0].radio.transmitter opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par KriptoAgi.sensor.wlan[0].radio.transmitter bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par KriptoAgi.sensor.wlan[0].radio.transmitter channelNumber 0
+par KriptoAgi.sensor.wlan[0].radio.receiver.errorModel typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.errormodel.Ieee80211NistErrorModel\""
+par KriptoAgi.sensor.wlan[0].radio.receiver.errorModel corruptionMode "\"packet\""
+attr enum packet,chunk,byte,bit
+par KriptoAgi.sensor.wlan[0].radio.receiver.errorModel snirMode "\"min\""
+attr enum min,mean
+par KriptoAgi.sensor.wlan[0].radio.receiver.errorModel snirOffset 0dB
+attr unit dB
+par KriptoAgi.sensor.wlan[0].radio.receiver typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarReceiver\""
+par KriptoAgi.sensor.wlan[0].radio.receiver snirThreshold 4dB
+attr unit dB
+par KriptoAgi.sensor.wlan[0].radio.receiver snirThresholdMode "\"min\""
+attr enum min,mean
+par KriptoAgi.sensor.wlan[0].radio.receiver energyDetection -85dBm
+attr unit dBm
+par KriptoAgi.sensor.wlan[0].radio.receiver sensitivity -85dBm
+attr unit dBm
+par KriptoAgi.sensor.wlan[0].radio.receiver centerFrequency 2.412e+09Hz
+attr unit Hz
+par KriptoAgi.sensor.wlan[0].radio.receiver bandwidth 2.2e+07Hz
+attr unit Hz
+par KriptoAgi.sensor.wlan[0].radio.receiver modulation "\"BPSK\""
+par KriptoAgi.sensor.wlan[0].radio.receiver opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par KriptoAgi.sensor.wlan[0].radio.receiver bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par KriptoAgi.sensor.wlan[0].radio.receiver channelNumber 0
+par KriptoAgi.sensor.wlan[0].radio typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadio\""
+par KriptoAgi.sensor.wlan[0].radio radioMediumModule "\"radioMedium\""
+par KriptoAgi.sensor.wlan[0].radio energySourceModule "\"\""
+par KriptoAgi.sensor.wlan[0].radio initialRadioMode "\"off\""
+attr enum off,sleep,receiver,transmitter,transceiver
+par KriptoAgi.sensor.wlan[0].radio switchingTimes "\"ms 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\""
+par KriptoAgi.sensor.wlan[0].radio sendRawBytes false
+par KriptoAgi.sensor.wlan[0].radio separateTransmissionParts false
+par KriptoAgi.sensor.wlan[0].radio separateReceptionParts false
+par KriptoAgi.sensor.wlan[0].radio displayCommunicationRange false
+par KriptoAgi.sensor.wlan[0].radio displayInterferenceRange false
+par KriptoAgi.sensor.wlan[0].radio centerFrequency 2.412e+09Hz
+attr unit Hz
+par KriptoAgi.sensor.wlan[0].radio bandwidth "nan Hz"
+attr unit Hz
+par KriptoAgi.sensor.wlan[0].radio signalAnalogRepresentation "\"scalar\""
+attr enum scalar,dimensional
+par KriptoAgi.sensor.wlan[0].radio opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par KriptoAgi.sensor.wlan[0].radio bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par KriptoAgi.sensor.wlan[0].radio channelNumber 0
+par KriptoAgi.sensor.wlan[0].radio crcMode "\"declared\""
+attr enum declared,computed
+statistic KriptoAgi.sensor.wlan[0].radio radioChannel:histogram
+field count 1
+field mean 0
+field stddev nan
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode sample-hold
+attr recordingmode histogram
+attr source radioChannelChanged
+attr title "Radio channel"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	1
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar KriptoAgi.sensor.wlan[0].radio radioMode:count 206
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar KriptoAgi.sensor.wlan[0].radio receptionState:count 404
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar KriptoAgi.sensor.wlan[0].radio transmissionState:count 406
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+statistic KriptoAgi.sensor.wlan[0].radio minSnir:histogram
+field count 100
+field mean 4891.4438802596
+field stddev 0
+field min 4891.4438802596
+field max 4891.4438802596
+field sum 489144.38802596
+field sqrsum 2392622323.373
+attr recordingmode histogram
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR"
+bin	-inf	0
+bin	4890.94	0
+bin	4890.96	0
+bin	4890.98	0
+bin	4891	0
+bin	4891.02	0
+bin	4891.04	0
+bin	4891.06	0
+bin	4891.08	0
+bin	4891.1	0
+bin	4891.12	0
+bin	4891.14	0
+bin	4891.16	0
+bin	4891.18	0
+bin	4891.2	0
+bin	4891.22	0
+bin	4891.24	0
+bin	4891.26	0
+bin	4891.28	0
+bin	4891.3	0
+bin	4891.32	0
+bin	4891.34	0
+bin	4891.36	0
+bin	4891.38	0
+bin	4891.4	0
+bin	4891.42	0
+bin	4891.44	100
+bin	4891.46	0
+bin	4891.48	0
+bin	4891.5	0
+bin	4891.52	0
+bin	4891.54	0
+bin	4891.56	0
+bin	4891.58	0
+bin	4891.6	0
+bin	4891.62	0
+bin	4891.64	0
+bin	4891.66	0
+bin	4891.68	0
+bin	4891.7	0
+bin	4891.72	0
+bin	4891.74	0
+bin	4891.76	0
+bin	4891.78	0
+bin	4891.8	0
+bin	4891.82	0
+bin	4891.84	0
+bin	4891.86	0
+bin	4891.88	0
+bin	4891.9	0
+bin	4891.92	0
+bin	4891.94	0
+bin	4891.96	0
+statistic KriptoAgi.sensor.wlan[0].radio packetErrorRate:histogram
+field count 100
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	100
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic KriptoAgi.sensor.wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic KriptoAgi.sensor.wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate"
+bin	-inf	0
+bin	0	0
+bin	1	0
+par KriptoAgi.sensor.wlan[0] typename "\"inet.linklayer.ieee80211.Ieee80211Interface\""
+par KriptoAgi.sensor.wlan[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par KriptoAgi.sensor.wlan[0] recordPcap false
+par KriptoAgi.sensor.wlan[0] numPcapRecorders 0
+par KriptoAgi.sensor.wlan[0] interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+par KriptoAgi.sensor.wlan[0] energySourceModule "\"\""
+par KriptoAgi.sensor.wlan[0] opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par KriptoAgi.sensor.wlan[0] address "\"0A-AA-00-00-00-01\""
+attr mutable ""
+par KriptoAgi.sensor.wlan[0] protocol "\"\""
+par KriptoAgi.sensor.wlan[0] bitrate -1bps
+attr unit bps
+scalar KriptoAgi.sensor.wlan[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar KriptoAgi.sensor.wlan[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar KriptoAgi.sensor.wlan[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar KriptoAgi.sensor.wlan[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par KriptoAgi.sensor.ipv4.transportIn.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.sensor.ipv4.up.out[0].channel typename "\"ned.IdealChannel\""
+par KriptoAgi.sensor.ipv4.lp.out[2].channel typename "\"ned.IdealChannel\""
+par KriptoAgi.sensor.ipv4.ifIn.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.sensor.ipv4.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator\""
+par KriptoAgi.sensor.ipv4.configurator interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+par KriptoAgi.sensor.ipv4.configurator routingTableModule "\"KriptoAgi.sensor.ipv4.routingTable\""
+par KriptoAgi.sensor.ipv4.configurator networkConfiguratorModule "\"configurator\""
+par KriptoAgi.sensor.ipv4.configurator configureRoutingTable true
+par KriptoAgi.sensor.ipv4.routingTable typename "\"inet.networklayer.ipv4.Ipv4RoutingTable\""
+par KriptoAgi.sensor.ipv4.routingTable interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+par KriptoAgi.sensor.ipv4.routingTable routerId "\"auto\""
+par KriptoAgi.sensor.ipv4.routingTable netmaskRoutes "\"*\""
+par KriptoAgi.sensor.ipv4.routingTable forwarding false
+par KriptoAgi.sensor.ipv4.routingTable multicastForwarding false
+par KriptoAgi.sensor.ipv4.routingTable useAdminDist false
+par KriptoAgi.sensor.ipv4.routingTable routingFile "\"\""
+par KriptoAgi.sensor.ipv4.natTable typename "\"inet.networklayer.ipv4.Ipv4NatTable\""
+par KriptoAgi.sensor.ipv4.natTable networkProtocolModule "\"^.ip\""
+par KriptoAgi.sensor.ipv4.natTable config "<config/> at content:1"
+par KriptoAgi.sensor.ipv4.up typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.sensor.ipv4.up displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.sensor.ipv4.up forwardServiceRegistration true
+par KriptoAgi.sensor.ipv4.up forwardProtocolRegistration true
+par KriptoAgi.sensor.ipv4.igmp typename "\"inet.networklayer.ipv4.Igmpv2\""
+par KriptoAgi.sensor.ipv4.igmp interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+par KriptoAgi.sensor.ipv4.igmp routingTableModule "\"KriptoAgi.sensor.ipv4.routingTable\""
+par KriptoAgi.sensor.ipv4.igmp crcMode "\"declared\""
+attr enum declared,computed
+par KriptoAgi.sensor.ipv4.igmp enabled true
+par KriptoAgi.sensor.ipv4.igmp robustnessVariable 2
+par KriptoAgi.sensor.ipv4.igmp queryInterval 125s
+attr unit s
+par KriptoAgi.sensor.ipv4.igmp queryResponseInterval 10s
+attr unit s
+par KriptoAgi.sensor.ipv4.igmp groupMembershipInterval 260s
+attr unit s
+par KriptoAgi.sensor.ipv4.igmp otherQuerierPresentInterval 255s
+attr unit s
+par KriptoAgi.sensor.ipv4.igmp startupQueryInterval 31.25s
+attr unit s
+par KriptoAgi.sensor.ipv4.igmp startupQueryCount 2
+par KriptoAgi.sensor.ipv4.igmp lastMemberQueryInterval 1s
+attr unit s
+par KriptoAgi.sensor.ipv4.igmp lastMemberQueryCount 2
+par KriptoAgi.sensor.ipv4.igmp unsolicitedReportInterval 10s
+attr unit s
+par KriptoAgi.sensor.ipv4.icmp typename "\"inet.networklayer.ipv4.Icmp\""
+par KriptoAgi.sensor.ipv4.icmp interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+par KriptoAgi.sensor.ipv4.icmp routingTableModule "\"KriptoAgi.sensor.ipv4.routingTable\""
+par KriptoAgi.sensor.ipv4.icmp crcMode "\"declared\""
+attr enum declared,computed
+attr mutable ""
+par KriptoAgi.sensor.ipv4.icmp quoteLength 8B
+attr mutable ""
+attr unit B
+par KriptoAgi.sensor.ipv4.mp typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.sensor.ipv4.mp displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.sensor.ipv4.mp forwardServiceRegistration true
+par KriptoAgi.sensor.ipv4.mp forwardProtocolRegistration true
+par KriptoAgi.sensor.ipv4.ip typename "\"inet.networklayer.ipv4.Ipv4\""
+par KriptoAgi.sensor.ipv4.ip interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+par KriptoAgi.sensor.ipv4.ip routingTableModule "\"KriptoAgi.sensor.ipv4.routingTable\""
+par KriptoAgi.sensor.ipv4.ip arpModule "\"KriptoAgi.sensor.ipv4.arp\""
+par KriptoAgi.sensor.ipv4.ip icmpModule "\"KriptoAgi.sensor.ipv4.icmp\""
+par KriptoAgi.sensor.ipv4.ip crcMode "\"declared\""
+attr enum declared,computed
+par KriptoAgi.sensor.ipv4.ip timeToLive 32
+par KriptoAgi.sensor.ipv4.ip multicastTimeToLive 32
+par KriptoAgi.sensor.ipv4.ip fragmentTimeout 60s
+attr unit s
+par KriptoAgi.sensor.ipv4.ip limitedBroadcast false
+par KriptoAgi.sensor.ipv4.ip directBroadcastInterfaces "\"\""
+scalar KriptoAgi.sensor.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar KriptoAgi.sensor.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar KriptoAgi.sensor.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar KriptoAgi.sensor.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar KriptoAgi.sensor.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar KriptoAgi.sensor.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar KriptoAgi.sensor.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar KriptoAgi.sensor.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar KriptoAgi.sensor.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar KriptoAgi.sensor.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar KriptoAgi.sensor.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar KriptoAgi.sensor.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+par KriptoAgi.sensor.ipv4.arp typename "\"inet.networklayer.arp.ipv4.Arp\""
+par KriptoAgi.sensor.ipv4.arp interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+par KriptoAgi.sensor.ipv4.arp routingTableModule "\"KriptoAgi.sensor.ipv4.routingTable\""
+par KriptoAgi.sensor.ipv4.arp retryTimeout 1s
+attr unit s
+par KriptoAgi.sensor.ipv4.arp retryCount 3
+par KriptoAgi.sensor.ipv4.arp cacheTimeout 120s
+attr unit s
+par KriptoAgi.sensor.ipv4.arp proxyArpInterfaces "\"\""
+scalar KriptoAgi.sensor.ipv4.arp arpResolutionFailed:count 0
+attr recordingmode count
+attr title "ARP failed resolutions, count"
+scalar KriptoAgi.sensor.ipv4.arp arpResolutionCompleted:count 1
+attr recordingmode count
+attr title "ARP completed resolutions, count"
+scalar KriptoAgi.sensor.ipv4.arp arpResolutionInitiated:count 1
+attr recordingmode count
+attr title "ARP initiated resolutions, count"
+scalar KriptoAgi.sensor.ipv4.arp arpReplySent:count 0
+attr recordingmode count
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar KriptoAgi.sensor.ipv4.arp arpReplySent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar KriptoAgi.sensor.ipv4.arp arpRequestSent:count 1
+attr recordingmode count
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar KriptoAgi.sensor.ipv4.arp arpRequestSent:sum(packetBytes) 28
+attr recordingmode sum(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+par KriptoAgi.sensor.ipv4.lp typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.sensor.ipv4.lp displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.sensor.ipv4.lp forwardServiceRegistration true
+par KriptoAgi.sensor.ipv4.lp forwardProtocolRegistration true
+par KriptoAgi.sensor.ipv4 typename "\"inet.networklayer.ipv4.Ipv4NetworkLayer\""
+par KriptoAgi.sensor.ipv4 forwarding false
+par KriptoAgi.sensor.ipv4 multicastForwarding false
+par KriptoAgi.sensor.ipv4 interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+par KriptoAgi.sensor.ipv4 displayStringTextFormat "\"%i\""
+par KriptoAgi.sensor.nl typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.sensor.nl displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.sensor.nl forwardServiceRegistration true
+par KriptoAgi.sensor.nl forwardProtocolRegistration true
+par KriptoAgi.sensor.udp typename "\"inet.transportlayer.udp.Udp\""
+par KriptoAgi.sensor.udp interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+par KriptoAgi.sensor.udp icmpModule "\"^.ipv4.icmp\""
+par KriptoAgi.sensor.udp icmpv6Module "\"^.ipv6.icmpv6\""
+par KriptoAgi.sensor.udp crcMode "\"declared\""
+attr enum disabled,declared,computed
+par KriptoAgi.sensor.udp defaultMulticastLoop true
+scalar KriptoAgi.sensor.udp packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar KriptoAgi.sensor.udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar KriptoAgi.sensor.udp packetSent:count 100
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar KriptoAgi.sensor.udp packetSent:sum(packetBytes) 26400
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar KriptoAgi.sensor.udp passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar KriptoAgi.sensor.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar KriptoAgi.sensor.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+par KriptoAgi.sensor.tcp typename "\"inet.transportlayer.tcp.Tcp\""
+par KriptoAgi.sensor.tcp crcMode "\"declared\""
+attr enum declared,computed
+par KriptoAgi.sensor.tcp advertisedWindow 7504
+par KriptoAgi.sensor.tcp delayedAcksEnabled false
+par KriptoAgi.sensor.tcp nagleEnabled true
+par KriptoAgi.sensor.tcp limitedTransmitEnabled false
+par KriptoAgi.sensor.tcp increasedIWEnabled false
+par KriptoAgi.sensor.tcp sackSupport false
+par KriptoAgi.sensor.tcp windowScalingSupport false
+par KriptoAgi.sensor.tcp windowScalingFactor -1
+par KriptoAgi.sensor.tcp timestampSupport false
+par KriptoAgi.sensor.tcp mss 536
+par KriptoAgi.sensor.tcp msl 120s
+attr unit s
+par KriptoAgi.sensor.tcp tcpAlgorithmClass "\"TcpReno\""
+par KriptoAgi.sensor.tcp useDataNotification false
+par KriptoAgi.sensor.tcp dupthresh 3
+par KriptoAgi.sensor.tcp initialSsthresh 4294967295
+par KriptoAgi.sensor.tcp stopOperationExtraTime 0s
+attr unit s
+par KriptoAgi.sensor.tcp stopOperationTimeout 2s
+attr unit s
+par KriptoAgi.sensor.tcp ecnWillingness false
+par KriptoAgi.sensor.tcp dctcpGamma 0.0625
+par KriptoAgi.sensor.tn typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.sensor.tn displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.sensor.tn forwardServiceRegistration true
+par KriptoAgi.sensor.tn forwardProtocolRegistration true
+par KriptoAgi.sensor.app[0] typename "\"inet.applications.udpapp.UdpBasicApp\""
+par KriptoAgi.sensor.app[0] interfaceTableModule "\"KriptoAgi.sensor.interfaceTable\""
+par KriptoAgi.sensor.app[0] clockModule "\"\""
+par KriptoAgi.sensor.app[0] localPort -1
+par KriptoAgi.sensor.app[0] destAddresses "\"gateway\""
+par KriptoAgi.sensor.app[0] localAddress "\"\""
+par KriptoAgi.sensor.app[0] packetName "\"UdpBasicAppData\""
+par KriptoAgi.sensor.app[0] destPort 5000
+par KriptoAgi.sensor.app[0] messageLength 256B
+attr unit B
+par KriptoAgi.sensor.app[0] startTime 1s
+attr unit s
+par KriptoAgi.sensor.app[0] stopTime -1s
+attr unit s
+par KriptoAgi.sensor.app[0] sendInterval 1s
+attr unit s
+par KriptoAgi.sensor.app[0] timeToLive -1
+par KriptoAgi.sensor.app[0] dontFragment false
+par KriptoAgi.sensor.app[0] dscp -1
+par KriptoAgi.sensor.app[0] tos -1
+par KriptoAgi.sensor.app[0] multicastInterface "\"\""
+par KriptoAgi.sensor.app[0] receiveBroadcast false
+par KriptoAgi.sensor.app[0] joinLocalMulticastGroups false
+par KriptoAgi.sensor.app[0] stopOperationExtraTime -1s
+attr unit s
+par KriptoAgi.sensor.app[0] stopOperationTimeout 2s
+attr unit s
+scalar KriptoAgi.sensor.app[0] "packets sent" 100
+scalar KriptoAgi.sensor.app[0] "packets received" 0
+scalar KriptoAgi.sensor.app[0] packetReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar KriptoAgi.sensor.app[0] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic KriptoAgi.sensor.app[0] rcvdPkLifetime:stats
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr recordingmode stats
+attr source dataAge(packetReceived)
+attr title "received packet lifetime"
+attr unit s
+scalar KriptoAgi.sensor.app[0] packetSent:count 100
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar KriptoAgi.sensor.app[0] packetSent:sum(packetBytes) 25600
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+par KriptoAgi.sensor.at typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.sensor.at displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.sensor.at forwardServiceRegistration true
+par KriptoAgi.sensor.at forwardProtocolRegistration true
+par KriptoAgi.sensor typename "\"inet.node.inet.WirelessHost\""
+par KriptoAgi.sensor hasStatus false
+par KriptoAgi.sensor osgModel "\"\""
+par KriptoAgi.sensor osgModelColor "\"\""
+par KriptoAgi.sensor canvasImage "\"\""
+par KriptoAgi.sensor canvasImageColor "\"\""
+par KriptoAgi.sensor recordPcap false
+par KriptoAgi.sensor numPcapRecorders 0
+par KriptoAgi.sensor numLoInterfaces 1
+par KriptoAgi.sensor numWlanInterfaces 1
+par KriptoAgi.sensor numEthInterfaces 0
+par KriptoAgi.sensor numPppInterfaces 0
+par KriptoAgi.sensor numTunInterfaces 0
+par KriptoAgi.sensor numVirtInterfaces 0
+par KriptoAgi.sensor fcsMode "\"declared\""
+attr enum declared,computed
+par KriptoAgi.sensor hasIpv4 true
+par KriptoAgi.sensor hasIpv6 false
+par KriptoAgi.sensor hasGn false
+par KriptoAgi.sensor forwarding false
+par KriptoAgi.sensor multicastForwarding false
+par KriptoAgi.sensor hasUdp true
+par KriptoAgi.sensor hasTcp true
+par KriptoAgi.sensor hasSctp false
+par KriptoAgi.sensor numApps 1
+par KriptoAgi.gateway.radioIn[0].channel typename "\"ned.IdealChannel\""
+par KriptoAgi.gateway.mobility typename "\"inet.mobility.static.StationaryMobility\""
+par KriptoAgi.gateway.mobility subjectModule "\"^\""
+par KriptoAgi.gateway.mobility coordinateSystemModule "\"\""
+par KriptoAgi.gateway.mobility displayStringTextFormat "\"p: %p\\nv: %v\""
+attr mutable ""
+par KriptoAgi.gateway.mobility updateDisplayString true
+par KriptoAgi.gateway.mobility constraintAreaMinX "-inf m"
+attr unit m
+par KriptoAgi.gateway.mobility constraintAreaMinY "-inf m"
+attr unit m
+par KriptoAgi.gateway.mobility constraintAreaMinZ "-inf m"
+attr unit m
+par KriptoAgi.gateway.mobility constraintAreaMaxX "inf m"
+attr unit m
+par KriptoAgi.gateway.mobility constraintAreaMaxY "inf m"
+attr unit m
+par KriptoAgi.gateway.mobility constraintAreaMaxZ "inf m"
+attr unit m
+par KriptoAgi.gateway.mobility initialX "nan m"
+attr unit m
+par KriptoAgi.gateway.mobility initialY "nan m"
+attr unit m
+par KriptoAgi.gateway.mobility initialZ 0m
+attr unit m
+par KriptoAgi.gateway.mobility initialLatitude "nan deg"
+attr unit deg
+par KriptoAgi.gateway.mobility initialLongitude "nan deg"
+attr unit deg
+par KriptoAgi.gateway.mobility initialAltitude 0m
+attr unit m
+par KriptoAgi.gateway.mobility initialHeading 0deg
+attr unit deg
+par KriptoAgi.gateway.mobility initialElevation 0deg
+attr unit deg
+par KriptoAgi.gateway.mobility initialBank 0deg
+attr unit deg
+par KriptoAgi.gateway.mobility initFromDisplayString true
+par KriptoAgi.gateway.mobility updateFromDisplayString true
+par KriptoAgi.gateway.interfaceTable typename "\"inet.networklayer.common.InterfaceTable\""
+par KriptoAgi.gateway.interfaceTable displayAddresses false
+par KriptoAgi.gateway.cb typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.gateway.cb displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.gateway.cb forwardServiceRegistration true
+par KriptoAgi.gateway.cb forwardProtocolRegistration true
+par KriptoAgi.gateway.bl typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.gateway.bl displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.gateway.bl forwardServiceRegistration true
+par KriptoAgi.gateway.bl forwardProtocolRegistration true
+par KriptoAgi.gateway.li typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.gateway.li displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.gateway.li forwardServiceRegistration true
+par KriptoAgi.gateway.li forwardProtocolRegistration true
+par KriptoAgi.gateway.lo[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.gateway.lo[0].lo.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.gateway.lo[0].lo typename "\"inet.linklayer.loopback.Loopback\""
+par KriptoAgi.gateway.lo[0].lo interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+par KriptoAgi.gateway.lo[0].lo mtu 4470B
+attr unit B
+scalar KriptoAgi.gateway.lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar KriptoAgi.gateway.lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar KriptoAgi.gateway.lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar KriptoAgi.gateway.lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+par KriptoAgi.gateway.lo[0] typename "\"inet.linklayer.loopback.LoopbackInterface\""
+par KriptoAgi.gateway.lo[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par KriptoAgi.gateway.lo[0] recordPcap false
+par KriptoAgi.gateway.lo[0] numPcapRecorders 0
+par KriptoAgi.gateway.lo[0] interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+scalar KriptoAgi.gateway.lo[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar KriptoAgi.gateway.lo[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar KriptoAgi.gateway.lo[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar KriptoAgi.gateway.lo[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par KriptoAgi.gateway.wlan[0].radioIn.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.gateway.wlan[0].llc.upperLayerOut.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.gateway.wlan[0].upperLayerIn.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.gateway.wlan[0].mib typename "\"inet.linklayer.ieee80211.mib.Ieee80211Mib\""
+par KriptoAgi.gateway.wlan[0].llc typename "\"inet.linklayer.ieee80211.llc.Ieee80211LlcLpd\""
+par KriptoAgi.gateway.wlan[0].llc registerProtocol false
+par KriptoAgi.gateway.wlan[0].mgmt typename "\"inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAdhoc\""
+par KriptoAgi.gateway.wlan[0].mgmt mibModule "\"KriptoAgi.gateway.wlan[0].mib\""
+par KriptoAgi.gateway.wlan[0].mgmt macModule "\"KriptoAgi.gateway.wlan[0].mac\""
+par KriptoAgi.gateway.wlan[0].mgmt interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue typename "\"inet.linklayer.ieee80211.mac.queue.PendingQueue\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue displayStringTextFormat "\"contains %p pk (%l) pushed %u\\npulled %o removed %r dropped %d\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue packetCapacity 100
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue dataCapacity -1b
+attr unit b
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue dropperClass "\"inet::queueing::PacketAtCollectionEndDropper\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue comparatorClass "\"inet::ieee80211::MgmtOverDataComparator\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue bufferModule "\"\""
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:last 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode last
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, last"
+attr unit pk
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:max 1
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, max"
+attr unit pk
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:timeavg 2.3e-06
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length, timeavg"
+attr unit pk
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:last 0
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode last
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, last"
+attr unit b
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:max 512
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, max"
+attr unit b
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:timeavg 0.0011776
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length, timeavg"
+attr unit b
+statistic KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:histogram
+field count 1
+field mean 0.00023
+field stddev nan
+field min 0.00023
+field max 0.00023
+field sum 0.00023
+field sqrsum 5.29e-08
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+bin	-inf	0
+bin	0	1
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPackets:count 1
+attr recordingmode count
+attr source packetPulled
+attr title "outgoing packets, count"
+attr unit pk
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:sum 512
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths, sum"
+attr unit b
+statistic KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:histogram
+field count 1
+field mean 512
+field stddev nan
+field min 512
+field max 512
+field sum 512
+field sqrsum 262144
+attr interpolationmode none
+attr recordingmode histogram
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+bin	-inf	0
+bin	511	0
+bin	512	1
+bin	513	0
+statistic KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue flowQueueingTime:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(demuxFlow(packetPulled))
+attr title "flow queueing times"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPackets:count 1
+attr recordingmode count
+attr source packetPushStarted
+attr title "incoming packets, count"
+attr unit pk
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:sum 512
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths, sum"
+attr unit b
+statistic KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:histogram
+field count 1
+field mean 512
+field stddev nan
+field min 512
+field max 512
+field sum 512
+field sqrsum 262144
+attr interpolationmode none
+attr recordingmode histogram
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+bin	-inf	0
+bin	511	0
+bin	512	1
+bin	513	0
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue droppedPacketsQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "dropped packets: queue overflow, count"
+attr unit pk
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.pendingQueue droppedPacketLengthsQueueOverflow:sum 0
+attr interpolationmode none
+attr recordingmode sum
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow, sum"
+attr unit b
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.inProgressFrames typename "\"inet.linklayer.ieee80211.mac.queue.InProgressFrames\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.inProgressFrames pendingQueueModule "\"^.pendingQueue\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.inProgressFrames originatorMacDataServiceModule "\"^.^.originatorMacDataService\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.inProgressFrames ackHandlerModule "\"^.^.ackHandler\""
+statistic KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:histogram
+field count 1
+field mean 9.5334256e-05
+field stddev nan
+field min 9.5334256e-05
+field max 9.5334256e-05
+field sum 9.5334256e-05
+field sqrsum 9.0886203670735e-09
+attr interpolationmode none
+attr recordingmode histogram
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+bin	-inf	0
+bin	0	1
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:max 1
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode max
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length, max"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:timeavg 9.5334256e-07
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode timeavg
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length, timeavg"
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.contention typename "\"inet.linklayer.ieee80211.mac.contention.Contention\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.contention initialChannelBusy true
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.contention backoffOptimization true
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.contention channelAccessGranted:count 1
+attr recordingmode count
+attr title "channel access granted, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess.contention stateChanged:count 806
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode count
+attr title "contention state changed, count"
+attr type enum
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess typename "\"inet.linklayer.ieee80211.mac.channelaccess.Dcaf\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess difsn -1
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess cwMin -1
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess cwMax -1
+par KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess rxModule "\"^.^.rx\""
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.channelAccess channelOwnershipChanged:count 2
+attr interpolationmode sample-hold
+attr recordingmode count
+attr title "channel ownership, count"
+par KriptoAgi.gateway.wlan[0].mac.dcf.originatorMacDataService.fragmentationPolicy typename "\"inet.linklayer.ieee80211.mac.fragmentation.BasicFragmentationPolicy\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.originatorMacDataService.fragmentationPolicy fragmentationThreshold 1500B
+attr unit B
+par KriptoAgi.gateway.wlan[0].mac.dcf.originatorMacDataService typename "\"inet.linklayer.ieee80211.mac.originator.OriginatorMacDataService\""
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.originatorMacDataService packetAggregated:count 0
+attr recordingmode count
+attr title "packets aggregated, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.originatorMacDataService packetFragmented:count 0
+attr recordingmode count
+attr title "packets fragmented, count"
+par KriptoAgi.gateway.wlan[0].mac.dcf.recipientMacDataService typename "\"inet.linklayer.ieee80211.mac.recipient.RecipientMacDataService\""
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.recipientMacDataService packetDeaggregated:count 0
+attr recordingmode count
+attr title "packets deaggregated, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.recipientMacDataService packetDefragmented:count 100
+attr recordingmode count
+attr title "packets defragmented, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.recipientMacDataService packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+par KriptoAgi.gateway.wlan[0].mac.dcf.rateSelection typename "\"inet.linklayer.ieee80211.mac.rateselection.RateSelection\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.rateSelection rateControlModule "\"^.rateControl\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.rateSelection multicastFrameBitrate -1bps
+attr unit bps
+par KriptoAgi.gateway.wlan[0].mac.dcf.rateSelection responseAckFrameBitrate -1bps
+attr unit bps
+par KriptoAgi.gateway.wlan[0].mac.dcf.rateSelection responseCtsFrameBitrate -1bps
+attr unit bps
+par KriptoAgi.gateway.wlan[0].mac.dcf.rateSelection dataFrameBitrate -1bps
+attr unit bps
+par KriptoAgi.gateway.wlan[0].mac.dcf.rateSelection dataFrameBandwidth "nan Hz"
+attr unit Hz
+par KriptoAgi.gateway.wlan[0].mac.dcf.rateSelection dataFrameNumSpatialStreams -1
+par KriptoAgi.gateway.wlan[0].mac.dcf.rateSelection mgmtFrameBitrate -1bps
+attr unit bps
+par KriptoAgi.gateway.wlan[0].mac.dcf.rateSelection controlFrameBitrate -1bps
+attr unit bps
+par KriptoAgi.gateway.wlan[0].mac.dcf.recoveryProcedure typename "\"inet.linklayer.ieee80211.mac.originator.NonQosRecoveryProcedure\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.recoveryProcedure cwCalculatorModule "\"^.channelAccess\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.recoveryProcedure rtsPolicyModule "\"^.rtsPolicy\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.recoveryProcedure shortRetryLimit 7
+par KriptoAgi.gateway.wlan[0].mac.dcf.recoveryProcedure longRetryLimit 4
+scalar KriptoAgi.gateway.wlan[0].mac.dcf.recoveryProcedure retryLimitReached:count 0
+attr recordingmode count
+attr title "retry limit reached, count"
+par KriptoAgi.gateway.wlan[0].mac.dcf.originatorProtectionMechanism typename "\"inet.linklayer.ieee80211.mac.protectionmechanism.OriginatorProtectionMechanism\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.originatorProtectionMechanism rateSelectionModule "\"^.rateSelection\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.ackHandler typename "\"inet.linklayer.ieee80211.mac.originator.AckHandler\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.originatorAckPolicy typename "\"inet.linklayer.ieee80211.mac.originator.OriginatorAckPolicy\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.originatorAckPolicy rateSelectionModule "\"^.rateSelection\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.originatorAckPolicy ackTimeout -1s
+attr unit s
+par KriptoAgi.gateway.wlan[0].mac.dcf.recipientAckPolicy typename "\"inet.linklayer.ieee80211.mac.recipient.RecipientAckPolicy\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.recipientAckPolicy rateSelectionModule "\"^.rateSelection\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.rtsPolicy typename "\"inet.linklayer.ieee80211.mac.originator.RtsPolicy\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.rtsPolicy rateSelectionModule "\"^.rateSelection\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.rtsPolicy ctsTimeout -1s
+attr unit s
+par KriptoAgi.gateway.wlan[0].mac.dcf.rtsPolicy rtsThreshold 2346B
+attr unit B
+par KriptoAgi.gateway.wlan[0].mac.dcf.ctsPolicy typename "\"inet.linklayer.ieee80211.mac.recipient.CtsPolicy\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.ctsPolicy rxModule "\"^.^.rx\""
+par KriptoAgi.gateway.wlan[0].mac.dcf.ctsPolicy rateSelectionModule "\"^.rateSelection\""
+par KriptoAgi.gateway.wlan[0].mac.dcf typename "\"inet.linklayer.ieee80211.mac.coordinationfunction.Dcf\""
+par KriptoAgi.gateway.wlan[0].mac.dcf rxModule "\"^.rx\""
+par KriptoAgi.gateway.wlan[0].mac.dcf txModule "\"^.tx\""
+scalar KriptoAgi.gateway.wlan[0].mac.dcf frameSequenceFinished:count 1
+attr recordingmode count
+attr title "finished frame sequences, count"
+statistic KriptoAgi.gateway.wlan[0].mac.dcf frameSequenceDuration:histogram
+field count 1
+field mean 9.5334256e-05
+field stddev nan
+field min 9.5334256e-05
+field max 9.5334256e-05
+field sum 9.5334256e-05
+field sqrsum 9.0886203670735e-09
+attr recordingmode histogram
+attr source frameSequenceDuration(frameSequenceFinished)
+attr title "frame sequence durations"
+bin	-inf	0
+bin	0	1
+bin	0.01	0
+bin	0.02	0
+bin	0.03	0
+bin	0.04	0
+bin	0.05	0
+bin	0.06	0
+bin	0.07	0
+bin	0.08	0
+bin	0.09	0
+bin	0.1	0
+bin	0.11	0
+bin	0.12	0
+bin	0.13	0
+bin	0.14	0
+bin	0.15	0
+bin	0.16	0
+bin	0.17	0
+bin	0.18	0
+bin	0.19	0
+bin	0.2	0
+bin	0.21	0
+bin	0.22	0
+bin	0.23	0
+bin	0.24	0
+bin	0.25	0
+bin	0.26	0
+bin	0.27	0
+bin	0.28	0
+bin	0.29	0
+bin	0.3	0
+bin	0.31	0
+bin	0.32	0
+bin	0.33	0
+bin	0.34	0
+bin	0.35	0
+bin	0.36	0
+bin	0.37	0
+bin	0.38	0
+bin	0.39	0
+bin	0.4	0
+bin	0.41	0
+bin	0.42	0
+bin	0.43	0
+bin	0.44	0
+bin	0.45	0
+bin	0.46	0
+bin	0.47	0
+bin	0.48	0
+bin	0.49	0
+bin	0.5	0
+bin	0.51	0
+statistic KriptoAgi.gateway.wlan[0].mac.dcf frameSequenceNumPackets:histogram
+field count 1
+field mean 2
+field stddev nan
+field min 2
+field max 2
+field sum 2
+field sqrsum 4
+attr recordingmode histogram
+attr source frameSequenceNumPackets(frameSequenceFinished)
+attr title "frame sequences: number of packets"
+bin	-inf	0
+bin	1	0
+bin	2	1
+bin	3	0
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeer:count 101
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeer:sum(packetBytes) 31758
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerUnicast:count 100
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerUnicast:sum(packetBytes) 31694
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Unicast(packetReceivedFromPeer)
+attr title "packets received: unicast, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerMulticast:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerMulticast:sum(packetBytes) 64
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:count 1
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:sum(packetBytes) 64
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerWithRetry:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Retry(packetReceivedFromPeer)
+attr title "packets received: with retry, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:count 101
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:sum(packetBytes) 31758
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeer:count 100
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeer:sum(packetBytes) 1450
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeerUnicast:count 100
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeerUnicast:sum(packetBytes) 1450
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Unicast(packetSentToPeer)
+attr title "packets sent: unicast, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeerMulticast:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeerMulticast:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeerBroadcast:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeerBroadcast:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeerWithRetry:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeerWithRetry:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211Retry(packetSentToPeer)
+attr title "packets sent: with retry, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeerWithoutRetry:count 100
+attr interpolationmode none
+attr recordingmode count
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetSentToPeerWithoutRetry:sum(packetBytes) 1450
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetDrop:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropped
+attr title "packet drops, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac.dcf linkBroken:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "link breaks, count"
+par KriptoAgi.gateway.wlan[0].mac.ds typename "\"inet.linklayer.ieee80211.mac.Ds\""
+par KriptoAgi.gateway.wlan[0].mac.ds mibModule "\"KriptoAgi.gateway.wlan[0].mib\""
+par KriptoAgi.gateway.wlan[0].mac.rx typename "\"inet.linklayer.ieee80211.mac.Rx\""
+par KriptoAgi.gateway.wlan[0].mac.tx typename "\"inet.linklayer.ieee80211.mac.Tx\""
+par KriptoAgi.gateway.wlan[0].mac.tx rxModule "\"^.rx\""
+par KriptoAgi.gateway.wlan[0].mac typename "\"inet.linklayer.ieee80211.mac.Ieee80211Mac\""
+par KriptoAgi.gateway.wlan[0].mac interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+par KriptoAgi.gateway.wlan[0].mac mibModule "\"KriptoAgi.gateway.wlan[0].mib\""
+par KriptoAgi.gateway.wlan[0].mac modeSet "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par KriptoAgi.gateway.wlan[0].mac fcsMode "\"declared\""
+attr enum declared,computed
+par KriptoAgi.gateway.wlan[0].mac initialRadioMode "\"receiver\""
+attr enum off,sleep,receiver,transmitter,transceiver
+par KriptoAgi.gateway.wlan[0].mac mtu 2304B
+attr unit B
+par KriptoAgi.gateway.wlan[0].mac qosStation false
+scalar KriptoAgi.gateway.wlan[0].mac packetReceivedFromLower:count 101
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received from lower layer, count"
+scalar KriptoAgi.gateway.wlan[0].mac packetReceivedFromLower:sum(packetBytes) 31758
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac packetSentToLower:count 100
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent to lower layer, count"
+scalar KriptoAgi.gateway.wlan[0].mac packetSentToLower:sum(packetBytes) 1450
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac packetReceivedFromUpper:count 1
+attr interpolationmode none
+attr recordingmode count
+attr title "packets received from upper layer, count"
+scalar KriptoAgi.gateway.wlan[0].mac packetReceivedFromUpper:sum(packetBytes) 36
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets received from upper layer, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac packetSentToUpper:count 100
+attr interpolationmode none
+attr recordingmode count
+attr title "packets sent to upper layer, count"
+scalar KriptoAgi.gateway.wlan[0].mac packetSentToUpper:sum(packetBytes) 28944
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr title "packets sent to upper layer, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac packetDrop:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropped
+attr title "packet drops, count"
+scalar KriptoAgi.gateway.wlan[0].mac packetDrop:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropped
+attr title "packet drops, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, count"
+scalar KriptoAgi.gateway.wlan[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drops: incorrectly received, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, count"
+scalar KriptoAgi.gateway.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drops: not addressed to us, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar KriptoAgi.gateway.wlan[0].mac packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac packetDropRetryLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, count"
+scalar KriptoAgi.gateway.wlan[0].mac packetDropRetryLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drops: retry limit reached, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac packetDropDuplicateDetected:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, count"
+scalar KriptoAgi.gateway.wlan[0].mac packetDropDuplicateDetected:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsDuplicateDetected(packetDropped)
+attr title "packet drops: duplicate detected, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac packetDropOther:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, count"
+scalar KriptoAgi.gateway.wlan[0].mac packetDropOther:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0].mac linkBroken:count 0
+attr interpolationmode none
+attr recordingmode count
+attr title "link breaks, count"
+par KriptoAgi.gateway.wlan[0].radio.antenna typename "\"inet.physicallayer.wireless.common.antenna.IsotropicAntenna\""
+par KriptoAgi.gateway.wlan[0].radio.antenna mobilityModule "\"^.^.^.mobility\""
+par KriptoAgi.gateway.wlan[0].radio.antenna numAntennas 1
+par KriptoAgi.gateway.wlan[0].radio.transmitter typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarTransmitter\""
+par KriptoAgi.gateway.wlan[0].radio.transmitter preambleDuration -1s
+attr unit s
+par KriptoAgi.gateway.wlan[0].radio.transmitter headerLength 192b
+attr unit b
+par KriptoAgi.gateway.wlan[0].radio.transmitter bitrate -1bps
+attr unit bps
+par KriptoAgi.gateway.wlan[0].radio.transmitter power 0.02W
+attr unit W
+par KriptoAgi.gateway.wlan[0].radio.transmitter centerFrequency 2.412e+09Hz
+attr unit Hz
+par KriptoAgi.gateway.wlan[0].radio.transmitter bandwidth "nan Hz"
+attr unit Hz
+par KriptoAgi.gateway.wlan[0].radio.transmitter codeRate 1
+par KriptoAgi.gateway.wlan[0].radio.transmitter modulation "\"BPSK\""
+par KriptoAgi.gateway.wlan[0].radio.transmitter opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par KriptoAgi.gateway.wlan[0].radio.transmitter bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par KriptoAgi.gateway.wlan[0].radio.transmitter channelNumber 0
+par KriptoAgi.gateway.wlan[0].radio.receiver.errorModel typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.errormodel.Ieee80211NistErrorModel\""
+par KriptoAgi.gateway.wlan[0].radio.receiver.errorModel corruptionMode "\"packet\""
+attr enum packet,chunk,byte,bit
+par KriptoAgi.gateway.wlan[0].radio.receiver.errorModel snirMode "\"min\""
+attr enum min,mean
+par KriptoAgi.gateway.wlan[0].radio.receiver.errorModel snirOffset 0dB
+attr unit dB
+par KriptoAgi.gateway.wlan[0].radio.receiver typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarReceiver\""
+par KriptoAgi.gateway.wlan[0].radio.receiver snirThreshold 4dB
+attr unit dB
+par KriptoAgi.gateway.wlan[0].radio.receiver snirThresholdMode "\"min\""
+attr enum min,mean
+par KriptoAgi.gateway.wlan[0].radio.receiver energyDetection -85dBm
+attr unit dBm
+par KriptoAgi.gateway.wlan[0].radio.receiver sensitivity -85dBm
+attr unit dBm
+par KriptoAgi.gateway.wlan[0].radio.receiver centerFrequency 2.412e+09Hz
+attr unit Hz
+par KriptoAgi.gateway.wlan[0].radio.receiver bandwidth 2.2e+07Hz
+attr unit Hz
+par KriptoAgi.gateway.wlan[0].radio.receiver modulation "\"BPSK\""
+par KriptoAgi.gateway.wlan[0].radio.receiver opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par KriptoAgi.gateway.wlan[0].radio.receiver bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par KriptoAgi.gateway.wlan[0].radio.receiver channelNumber 0
+par KriptoAgi.gateway.wlan[0].radio typename "\"inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarRadio\""
+par KriptoAgi.gateway.wlan[0].radio radioMediumModule "\"radioMedium\""
+par KriptoAgi.gateway.wlan[0].radio energySourceModule "\"\""
+par KriptoAgi.gateway.wlan[0].radio initialRadioMode "\"off\""
+attr enum off,sleep,receiver,transmitter,transceiver
+par KriptoAgi.gateway.wlan[0].radio switchingTimes "\"ms 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\""
+par KriptoAgi.gateway.wlan[0].radio sendRawBytes false
+par KriptoAgi.gateway.wlan[0].radio separateTransmissionParts false
+par KriptoAgi.gateway.wlan[0].radio separateReceptionParts false
+par KriptoAgi.gateway.wlan[0].radio displayCommunicationRange false
+par KriptoAgi.gateway.wlan[0].radio displayInterferenceRange false
+par KriptoAgi.gateway.wlan[0].radio centerFrequency 2.412e+09Hz
+attr unit Hz
+par KriptoAgi.gateway.wlan[0].radio bandwidth "nan Hz"
+attr unit Hz
+par KriptoAgi.gateway.wlan[0].radio signalAnalogRepresentation "\"scalar\""
+attr enum scalar,dimensional
+par KriptoAgi.gateway.wlan[0].radio opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par KriptoAgi.gateway.wlan[0].radio bandName "\"2.4 GHz\""
+attr enum "2.4 GHz,5 GHz,5 GHz (20 MHz),5 GHz (40 MHz),5 GHz (80 MHz),5 GHz (160 MHz),5.9 GHz"
+par KriptoAgi.gateway.wlan[0].radio channelNumber 0
+par KriptoAgi.gateway.wlan[0].radio crcMode "\"declared\""
+attr enum declared,computed
+statistic KriptoAgi.gateway.wlan[0].radio radioChannel:histogram
+field count 1
+field mean 0
+field stddev nan
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode sample-hold
+attr recordingmode histogram
+attr source radioChannelChanged
+attr title "Radio channel"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	1
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar KriptoAgi.gateway.wlan[0].radio radioMode:count 203
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar KriptoAgi.gateway.wlan[0].radio receptionState:count 403
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar KriptoAgi.gateway.wlan[0].radio transmissionState:count 400
+attr interpolationmode sample-hold
+attr recordingmode count
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+statistic KriptoAgi.gateway.wlan[0].radio minSnir:histogram
+field count 101
+field mean 4891.4438802596
+field stddev 0
+field min 4891.4438802596
+field max 4891.4438802596
+field sum 494035.83190622
+field sqrsum 2416548546.6067
+attr recordingmode histogram
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR"
+bin	-inf	0
+bin	4890.94	0
+bin	4890.96	0
+bin	4890.98	0
+bin	4891	0
+bin	4891.02	0
+bin	4891.04	0
+bin	4891.06	0
+bin	4891.08	0
+bin	4891.1	0
+bin	4891.12	0
+bin	4891.14	0
+bin	4891.16	0
+bin	4891.18	0
+bin	4891.2	0
+bin	4891.22	0
+bin	4891.24	0
+bin	4891.26	0
+bin	4891.28	0
+bin	4891.3	0
+bin	4891.32	0
+bin	4891.34	0
+bin	4891.36	0
+bin	4891.38	0
+bin	4891.4	0
+bin	4891.42	0
+bin	4891.44	101
+bin	4891.46	0
+bin	4891.48	0
+bin	4891.5	0
+bin	4891.52	0
+bin	4891.54	0
+bin	4891.56	0
+bin	4891.58	0
+bin	4891.6	0
+bin	4891.62	0
+bin	4891.64	0
+bin	4891.66	0
+bin	4891.68	0
+bin	4891.7	0
+bin	4891.72	0
+bin	4891.74	0
+bin	4891.76	0
+bin	4891.78	0
+bin	4891.8	0
+bin	4891.82	0
+bin	4891.84	0
+bin	4891.86	0
+bin	4891.88	0
+bin	4891.9	0
+bin	4891.92	0
+bin	4891.94	0
+bin	4891.96	0
+statistic KriptoAgi.gateway.wlan[0].radio packetErrorRate:histogram
+field count 101
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	101
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic KriptoAgi.gateway.wlan[0].radio bitErrorRate:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic KriptoAgi.gateway.wlan[0].radio symbolErrorRate:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr recordingmode histogram
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate"
+bin	-inf	0
+bin	0	0
+bin	1	0
+par KriptoAgi.gateway.wlan[0] typename "\"inet.linklayer.ieee80211.Ieee80211Interface\""
+par KriptoAgi.gateway.wlan[0] displayStringTextFormat "\"%a (%i)\\n%m\""
+par KriptoAgi.gateway.wlan[0] recordPcap false
+par KriptoAgi.gateway.wlan[0] numPcapRecorders 0
+par KriptoAgi.gateway.wlan[0] interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+par KriptoAgi.gateway.wlan[0] energySourceModule "\"\""
+par KriptoAgi.gateway.wlan[0] opMode "\"g(mixed)\""
+attr enum a,b,g(erp),g(mixed),n(mixed-2.4Ghz),p,ac
+par KriptoAgi.gateway.wlan[0] address "\"0A-AA-00-00-00-02\""
+attr mutable ""
+par KriptoAgi.gateway.wlan[0] protocol "\"\""
+par KriptoAgi.gateway.wlan[0] bitrate -1bps
+attr unit bps
+scalar KriptoAgi.gateway.wlan[0] packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, count"
+scalar KriptoAgi.gateway.wlan[0] packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drops: interface down, sum(packetBytes)"
+scalar KriptoAgi.gateway.wlan[0] packetDropNoCarrier:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, count"
+scalar KriptoAgi.gateway.wlan[0] packetDropNoCarrier:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoCarrier(packetDropped)
+attr title "packet drops: no carrier, sum(packetBytes)"
+par KriptoAgi.gateway.ipv4.transportIn.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.gateway.ipv4.up.out[0].channel typename "\"ned.IdealChannel\""
+par KriptoAgi.gateway.ipv4.lp.out[2].channel typename "\"ned.IdealChannel\""
+par KriptoAgi.gateway.ipv4.ifIn.channel typename "\"ned.IdealChannel\""
+par KriptoAgi.gateway.ipv4.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator\""
+par KriptoAgi.gateway.ipv4.configurator interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+par KriptoAgi.gateway.ipv4.configurator routingTableModule "\"KriptoAgi.gateway.ipv4.routingTable\""
+par KriptoAgi.gateway.ipv4.configurator networkConfiguratorModule "\"configurator\""
+par KriptoAgi.gateway.ipv4.configurator configureRoutingTable true
+par KriptoAgi.gateway.ipv4.routingTable typename "\"inet.networklayer.ipv4.Ipv4RoutingTable\""
+par KriptoAgi.gateway.ipv4.routingTable interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+par KriptoAgi.gateway.ipv4.routingTable routerId "\"auto\""
+par KriptoAgi.gateway.ipv4.routingTable netmaskRoutes "\"*\""
+par KriptoAgi.gateway.ipv4.routingTable forwarding false
+par KriptoAgi.gateway.ipv4.routingTable multicastForwarding false
+par KriptoAgi.gateway.ipv4.routingTable useAdminDist false
+par KriptoAgi.gateway.ipv4.routingTable routingFile "\"\""
+par KriptoAgi.gateway.ipv4.natTable typename "\"inet.networklayer.ipv4.Ipv4NatTable\""
+par KriptoAgi.gateway.ipv4.natTable networkProtocolModule "\"^.ip\""
+par KriptoAgi.gateway.ipv4.natTable config "<config/> at content:1"
+par KriptoAgi.gateway.ipv4.up typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.gateway.ipv4.up displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.gateway.ipv4.up forwardServiceRegistration true
+par KriptoAgi.gateway.ipv4.up forwardProtocolRegistration true
+par KriptoAgi.gateway.ipv4.igmp typename "\"inet.networklayer.ipv4.Igmpv2\""
+par KriptoAgi.gateway.ipv4.igmp interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+par KriptoAgi.gateway.ipv4.igmp routingTableModule "\"KriptoAgi.gateway.ipv4.routingTable\""
+par KriptoAgi.gateway.ipv4.igmp crcMode "\"declared\""
+attr enum declared,computed
+par KriptoAgi.gateway.ipv4.igmp enabled true
+par KriptoAgi.gateway.ipv4.igmp robustnessVariable 2
+par KriptoAgi.gateway.ipv4.igmp queryInterval 125s
+attr unit s
+par KriptoAgi.gateway.ipv4.igmp queryResponseInterval 10s
+attr unit s
+par KriptoAgi.gateway.ipv4.igmp groupMembershipInterval 260s
+attr unit s
+par KriptoAgi.gateway.ipv4.igmp otherQuerierPresentInterval 255s
+attr unit s
+par KriptoAgi.gateway.ipv4.igmp startupQueryInterval 31.25s
+attr unit s
+par KriptoAgi.gateway.ipv4.igmp startupQueryCount 2
+par KriptoAgi.gateway.ipv4.igmp lastMemberQueryInterval 1s
+attr unit s
+par KriptoAgi.gateway.ipv4.igmp lastMemberQueryCount 2
+par KriptoAgi.gateway.ipv4.igmp unsolicitedReportInterval 10s
+attr unit s
+par KriptoAgi.gateway.ipv4.icmp typename "\"inet.networklayer.ipv4.Icmp\""
+par KriptoAgi.gateway.ipv4.icmp interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+par KriptoAgi.gateway.ipv4.icmp routingTableModule "\"KriptoAgi.gateway.ipv4.routingTable\""
+par KriptoAgi.gateway.ipv4.icmp crcMode "\"declared\""
+attr enum declared,computed
+attr mutable ""
+par KriptoAgi.gateway.ipv4.icmp quoteLength 8B
+attr mutable ""
+attr unit B
+par KriptoAgi.gateway.ipv4.mp typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.gateway.ipv4.mp displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.gateway.ipv4.mp forwardServiceRegistration true
+par KriptoAgi.gateway.ipv4.mp forwardProtocolRegistration true
+par KriptoAgi.gateway.ipv4.ip typename "\"inet.networklayer.ipv4.Ipv4\""
+par KriptoAgi.gateway.ipv4.ip interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+par KriptoAgi.gateway.ipv4.ip routingTableModule "\"KriptoAgi.gateway.ipv4.routingTable\""
+par KriptoAgi.gateway.ipv4.ip arpModule "\"KriptoAgi.gateway.ipv4.arp\""
+par KriptoAgi.gateway.ipv4.ip icmpModule "\"KriptoAgi.gateway.ipv4.icmp\""
+par KriptoAgi.gateway.ipv4.ip crcMode "\"declared\""
+attr enum declared,computed
+par KriptoAgi.gateway.ipv4.ip timeToLive 32
+par KriptoAgi.gateway.ipv4.ip multicastTimeToLive 32
+par KriptoAgi.gateway.ipv4.ip fragmentTimeout 60s
+attr unit s
+par KriptoAgi.gateway.ipv4.ip limitedBroadcast false
+par KriptoAgi.gateway.ipv4.ip directBroadcastInterfaces "\"\""
+scalar KriptoAgi.gateway.ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar KriptoAgi.gateway.ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar KriptoAgi.gateway.ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar KriptoAgi.gateway.ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar KriptoAgi.gateway.ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar KriptoAgi.gateway.ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar KriptoAgi.gateway.ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar KriptoAgi.gateway.ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar KriptoAgi.gateway.ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar KriptoAgi.gateway.ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar KriptoAgi.gateway.ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar KriptoAgi.gateway.ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+par KriptoAgi.gateway.ipv4.arp typename "\"inet.networklayer.arp.ipv4.Arp\""
+par KriptoAgi.gateway.ipv4.arp interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+par KriptoAgi.gateway.ipv4.arp routingTableModule "\"KriptoAgi.gateway.ipv4.routingTable\""
+par KriptoAgi.gateway.ipv4.arp retryTimeout 1s
+attr unit s
+par KriptoAgi.gateway.ipv4.arp retryCount 3
+par KriptoAgi.gateway.ipv4.arp cacheTimeout 120s
+attr unit s
+par KriptoAgi.gateway.ipv4.arp proxyArpInterfaces "\"\""
+scalar KriptoAgi.gateway.ipv4.arp arpResolutionFailed:count 0
+attr recordingmode count
+attr title "ARP failed resolutions, count"
+scalar KriptoAgi.gateway.ipv4.arp arpResolutionCompleted:count 1
+attr recordingmode count
+attr title "ARP completed resolutions, count"
+scalar KriptoAgi.gateway.ipv4.arp arpResolutionInitiated:count 0
+attr recordingmode count
+attr title "ARP initiated resolutions, count"
+scalar KriptoAgi.gateway.ipv4.arp arpReplySent:count 1
+attr recordingmode count
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar KriptoAgi.gateway.ipv4.arp arpReplySent:sum(packetBytes) 28
+attr recordingmode sum(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar KriptoAgi.gateway.ipv4.arp arpRequestSent:count 0
+attr recordingmode count
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar KriptoAgi.gateway.ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr recordingmode sum(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+par KriptoAgi.gateway.ipv4.lp typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.gateway.ipv4.lp displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.gateway.ipv4.lp forwardServiceRegistration true
+par KriptoAgi.gateway.ipv4.lp forwardProtocolRegistration true
+par KriptoAgi.gateway.ipv4 typename "\"inet.networklayer.ipv4.Ipv4NetworkLayer\""
+par KriptoAgi.gateway.ipv4 forwarding false
+par KriptoAgi.gateway.ipv4 multicastForwarding false
+par KriptoAgi.gateway.ipv4 interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+par KriptoAgi.gateway.ipv4 displayStringTextFormat "\"%i\""
+par KriptoAgi.gateway.nl typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.gateway.nl displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.gateway.nl forwardServiceRegistration true
+par KriptoAgi.gateway.nl forwardProtocolRegistration true
+par KriptoAgi.gateway.udp typename "\"inet.transportlayer.udp.Udp\""
+par KriptoAgi.gateway.udp interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+par KriptoAgi.gateway.udp icmpModule "\"^.ipv4.icmp\""
+par KriptoAgi.gateway.udp icmpv6Module "\"^.ipv6.icmpv6\""
+par KriptoAgi.gateway.udp crcMode "\"declared\""
+attr enum disabled,declared,computed
+par KriptoAgi.gateway.udp defaultMulticastLoop true
+scalar KriptoAgi.gateway.udp packetReceived:count 99
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar KriptoAgi.gateway.udp packetReceived:sum(packetBytes) 26136
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar KriptoAgi.gateway.udp packetSent:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetSent
+attr title "packets sent, count"
+scalar KriptoAgi.gateway.udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar KriptoAgi.gateway.udp passedUpPk:count 99
+attr interpolationmode none
+attr recordingmode count
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar KriptoAgi.gateway.udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar KriptoAgi.gateway.udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr recordingmode count
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+par KriptoAgi.gateway.tcp typename "\"inet.transportlayer.tcp.Tcp\""
+par KriptoAgi.gateway.tcp crcMode "\"declared\""
+attr enum declared,computed
+par KriptoAgi.gateway.tcp advertisedWindow 7504
+par KriptoAgi.gateway.tcp delayedAcksEnabled false
+par KriptoAgi.gateway.tcp nagleEnabled true
+par KriptoAgi.gateway.tcp limitedTransmitEnabled false
+par KriptoAgi.gateway.tcp increasedIWEnabled false
+par KriptoAgi.gateway.tcp sackSupport false
+par KriptoAgi.gateway.tcp windowScalingSupport false
+par KriptoAgi.gateway.tcp windowScalingFactor -1
+par KriptoAgi.gateway.tcp timestampSupport false
+par KriptoAgi.gateway.tcp mss 536
+par KriptoAgi.gateway.tcp msl 120s
+attr unit s
+par KriptoAgi.gateway.tcp tcpAlgorithmClass "\"TcpReno\""
+par KriptoAgi.gateway.tcp useDataNotification false
+par KriptoAgi.gateway.tcp dupthresh 3
+par KriptoAgi.gateway.tcp initialSsthresh 4294967295
+par KriptoAgi.gateway.tcp stopOperationExtraTime 0s
+attr unit s
+par KriptoAgi.gateway.tcp stopOperationTimeout 2s
+attr unit s
+par KriptoAgi.gateway.tcp ecnWillingness false
+par KriptoAgi.gateway.tcp dctcpGamma 0.0625
+par KriptoAgi.gateway.tn typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.gateway.tn displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.gateway.tn forwardServiceRegistration true
+par KriptoAgi.gateway.tn forwardProtocolRegistration true
+par KriptoAgi.gateway.app[0] typename "\"inet.applications.udpapp.UdpSink\""
+par KriptoAgi.gateway.app[0] interfaceTableModule "\"KriptoAgi.gateway.interfaceTable\""
+par KriptoAgi.gateway.app[0] startTime 0s
+attr unit s
+par KriptoAgi.gateway.app[0] stopTime -1s
+attr unit s
+par KriptoAgi.gateway.app[0] localPort 5000
+par KriptoAgi.gateway.app[0] receiveBroadcast false
+par KriptoAgi.gateway.app[0] multicastGroup "\"\""
+par KriptoAgi.gateway.app[0] multicastSources "\"\""
+par KriptoAgi.gateway.app[0] stopOperationExtraTime -1s
+attr unit s
+par KriptoAgi.gateway.app[0] stopOperationTimeout 2s
+attr unit s
+scalar KriptoAgi.gateway.app[0] packetReceived:count 99
+attr interpolationmode none
+attr recordingmode count
+attr source packetReceived
+attr title "packets received, count"
+scalar KriptoAgi.gateway.app[0] packetReceived:sum(packetBytes) 25344
+attr interpolationmode none
+attr recordingmode sum(packetBytes)
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic KriptoAgi.gateway.app[0] endToEndDelay:histogram
+field count 99
+field mean 0.00014280181745455
+field stddev 8.0939138120365e-05
+field min 0.000134667128
+field max 0.000940001384
+field sum 0.014137379928
+field sqrsum 2.6608556675712e-06
+attr interpolationmode none
+attr recordingmode histogram
+attr source dataAge(packetReceived)
+attr title "end-to-end delay"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	2e-05	0
+bin	4e-05	0
+bin	6e-05	0
+bin	8e-05	0
+bin	0.0001	0
+bin	0.00012	98
+bin	0.00014	0
+bin	0.00016	0
+bin	0.00018	0
+bin	0.0002	0
+bin	0.00022	0
+bin	0.00024	0
+bin	0.00026	0
+bin	0.00028	0
+bin	0.0003	0
+bin	0.00032	0
+bin	0.00034	0
+bin	0.00036	0
+bin	0.00038	0
+bin	0.0004	0
+bin	0.00042	0
+bin	0.00044	0
+bin	0.00046	0
+bin	0.00048	0
+bin	0.0005	0
+bin	0.00052	0
+bin	0.00054	0
+bin	0.00056	0
+bin	0.00058	0
+bin	0.0006	0
+bin	0.00062	0
+bin	0.00064	0
+bin	0.00066	0
+bin	0.00068	0
+bin	0.0007	0
+bin	0.00072	0
+bin	0.00074	0
+bin	0.00076	0
+bin	0.00078	0
+bin	0.0008	0
+bin	0.00082	0
+bin	0.00084	0
+bin	0.00086	0
+bin	0.00088	0
+bin	0.0009	0
+bin	0.00092	0
+bin	0.00094	1
+bin	0.00096	0
+bin	0.00098	0
+bin	0.001	0
+bin	0.00102	0
+bin	0.00104	0
+bin	0.00106	0
+bin	0.00108	0
+bin	0.0011	0
+bin	0.00112	0
+bin	0.00114	0
+bin	0.00116	0
+par KriptoAgi.gateway.at typename "\"inet.common.MessageDispatcher\""
+par KriptoAgi.gateway.at displayStringTextFormat "\"processed %p pk (%l)\""
+par KriptoAgi.gateway.at forwardServiceRegistration true
+par KriptoAgi.gateway.at forwardProtocolRegistration true
+par KriptoAgi.gateway typename "\"inet.node.inet.WirelessHost\""
+par KriptoAgi.gateway hasStatus false
+par KriptoAgi.gateway osgModel "\"\""
+par KriptoAgi.gateway osgModelColor "\"\""
+par KriptoAgi.gateway canvasImage "\"\""
+par KriptoAgi.gateway canvasImageColor "\"\""
+par KriptoAgi.gateway recordPcap false
+par KriptoAgi.gateway numPcapRecorders 0
+par KriptoAgi.gateway numLoInterfaces 1
+par KriptoAgi.gateway numWlanInterfaces 1
+par KriptoAgi.gateway numEthInterfaces 0
+par KriptoAgi.gateway numPppInterfaces 0
+par KriptoAgi.gateway numTunInterfaces 0
+par KriptoAgi.gateway numVirtInterfaces 0
+par KriptoAgi.gateway fcsMode "\"declared\""
+attr enum declared,computed
+par KriptoAgi.gateway hasIpv4 true
+par KriptoAgi.gateway hasIpv6 false
+par KriptoAgi.gateway hasGn false
+par KriptoAgi.gateway forwarding false
+par KriptoAgi.gateway multicastForwarding false
+par KriptoAgi.gateway hasUdp true
+par KriptoAgi.gateway hasTcp true
+par KriptoAgi.gateway hasSctp false
+par KriptoAgi.gateway numApps 1
+par KriptoAgi typename "\"KriptoAgi\""
+

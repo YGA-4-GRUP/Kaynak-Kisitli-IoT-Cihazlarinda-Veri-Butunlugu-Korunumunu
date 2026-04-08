@@ -1,0 +1,5 @@
+Config,MitM_Manipulated,MitM_Received,NumActuated,NumDropped,NumReceived,NumSecurityVulnerabilities,NumSent
+ECC,0,1,0,0,1,0,1
+ML,0,2,0,0,2,0,2
+RSA,0,1,0,0,0,0,1
+Sifresiz_Zafiyet_Testi,3,3,2,0,2,2,6
