@@ -1,0 +1,99 @@
+version 3
+run BLE-ChaCha-448-20260507-00:11:38-3359
+attr configname BLE-ChaCha
+attr datetime 20260507-00:11:38
+attr datetimef 20260507-001138
+attr experiment BLE-ChaCha
+attr inifile simulations/omnetpp.ini
+attr iterationvars "$temp=36, $auth=false, $nonce=false, $timecheck=true, $seqcheck=true"
+attr iterationvarsd temp=36/auth=false/nonce=false/timecheck=true/seqcheck=true
+attr iterationvarsf temp=36,auth=false,nonce=false,timecheck=true,seqcheck=true-
+attr measurement "$temp=36, $auth=false, $nonce=false, $timecheck=true, $seqcheck=true"
+attr network BLEScenario
+attr processid 3359
+attr repetition 8
+attr replication #8
+attr resultdir results
+attr runnumber 448
+attr seedset 8
+itervar auth false
+itervar nonce false
+itervar seqcheck true
+itervar temp 36
+itervar timecheck true
+config cmdenv-express-mode true
+config network BLEScenario
+config *.algorithm "\"ChaCha20-Poly1305\""
+config *.sensor.algorithm "\"ChaCha20-Poly1305\""
+config *.ac.algorithm "\"ChaCha20-Poly1305\""
+config sim-time-limit 150s
+config repeat 10
+config seed-set 8
+config ned-path ../src;.
+config output-vector-file ../results/BLE-ChaCha-448.vec
+config output-scalar-file ../results/BLE-ChaCha-448.sca
+config **.sensor.maxMessages 1000
+config **.sensor.baseTemperature 36
+config **.sensor.payloadSize 32
+config **.attacker.forgedTemperature 18
+config **.metrics.resultDir "\"results\""
+config **.ac.authEnabled false
+config **.ac.nonceCheckEnabled false
+config **.ac.timestampCheckEnabled true
+config **.ac.sequenceCheckEnabled true
+
+par BLEScenario.sensor.out.channel typename "\"BLEScenario.BLEChannel\""
+par BLEScenario.sensor.out.channel disabled false
+attr mutable ""
+par BLEScenario.sensor.out.channel delay 0.005s
+attr mutable ""
+attr unit s
+par BLEScenario.sensor.out.channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par BLEScenario.sensor.out.channel ber 5e-06
+attr mutable ""
+par BLEScenario.sensor.out.channel per 0
+attr mutable ""
+par BLEScenario.attacker.out.channel typename "\"BLEScenario.BLEChannel\""
+par BLEScenario.attacker.out.channel disabled false
+attr mutable ""
+par BLEScenario.attacker.out.channel delay 0.005s
+attr mutable ""
+attr unit s
+par BLEScenario.attacker.out.channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par BLEScenario.attacker.out.channel ber 5e-06
+attr mutable ""
+par BLEScenario.attacker.out.channel per 0
+attr mutable ""
+par BLEScenario.sensor typename "\"TemperatureSensor\""
+par BLEScenario.sensor sourceId "\"TemperatureSensor-1\""
+par BLEScenario.sensor destinationId "\"SmartAC-1\""
+par BLEScenario.sensor algorithm "\"ChaCha20-Poly1305\""
+par BLEScenario.sensor maxMessages 1000
+par BLEScenario.sensor payloadSize 32
+par BLEScenario.sensor sendInterval 0.08s
+attr unit s
+par BLEScenario.sensor baseTemperature 36
+par BLEScenario.attacker typename "\"MITMAttacker\""
+par BLEScenario.attacker forgedTemperature 18
+par BLEScenario.attacker maxCaptured 16
+par BLEScenario.attacker attackInterval 0.2s
+attr unit s
+par BLEScenario.ac typename "\"SmartAC\""
+par BLEScenario.ac expectedSourceId "\"TemperatureSensor-1\""
+par BLEScenario.ac algorithm "\"ChaCha20-Poly1305\""
+par BLEScenario.ac networkType "\"BLE\""
+par BLEScenario.ac authEnabled false
+par BLEScenario.ac nonceCheckEnabled false
+par BLEScenario.ac timestampCheckEnabled true
+par BLEScenario.ac sequenceCheckEnabled true
+par BLEScenario.ac maxDelayMs 180
+par BLEScenario.ac timestampWindowSec 1
+par BLEScenario.metrics typename "\"MetricsCollector\""
+par BLEScenario.metrics resultDir "\"results\""
+par BLEScenario typename "\"BLEScenario\""
+par BLEScenario algorithm "\"ChaCha20-Poly1305\""
+

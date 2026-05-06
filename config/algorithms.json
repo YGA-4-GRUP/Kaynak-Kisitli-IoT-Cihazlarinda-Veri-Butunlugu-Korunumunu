@@ -1,0 +1,28 @@
+{
+  "algorithms": [
+    {
+      "name": "ChaCha20-Poly1305",
+      "encryptDelayMs": 0.45,
+      "decryptDelayMs": 0.40,
+      "overheadBytes": 16,
+      "sensorEnergy": 0.19,
+      "acEnergy": 0.17
+    },
+    {
+      "name": "ASCON-128",
+      "encryptDelayMs": 0.52,
+      "decryptDelayMs": 0.48,
+      "overheadBytes": 16,
+      "sensorEnergy": 0.17,
+      "acEnergy": 0.16
+    },
+    {
+      "name": "SIMON",
+      "encryptDelayMs": 0.30,
+      "decryptDelayMs": 0.28,
+      "overheadBytes": 8,
+      "sensorEnergy": 0.12,
+      "acEnergy": 0.10
+    }
+  ]
+}

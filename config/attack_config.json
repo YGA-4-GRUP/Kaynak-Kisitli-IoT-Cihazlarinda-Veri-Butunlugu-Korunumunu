@@ -1,0 +1,7 @@
+{
+  "attackTypes": ["PassiveSniffing", "Replay", "Spoofing", "PayloadManipulation"],
+  "attackIntervalSec": [0.1, 0.2, 0.5],
+  "forgedTemperature": 18,
+  "messageCount": 1000,
+  "repetitions": 10
+}

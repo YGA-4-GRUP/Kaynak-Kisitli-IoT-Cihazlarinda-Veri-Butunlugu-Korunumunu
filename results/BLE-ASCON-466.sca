@@ -1,0 +1,99 @@
+version 3
+run BLE-ASCON-466-20260507-00:11:54-3360
+attr configname BLE-ASCON
+attr datetime 20260507-00:11:54
+attr datetimef 20260507-001154
+attr experiment BLE-ASCON
+attr inifile simulations/omnetpp.ini
+attr iterationvars "$temp=36, $auth=false, $nonce=false, $timecheck=false, $seqcheck=true"
+attr iterationvarsd temp=36/auth=false/nonce=false/timecheck=false/seqcheck=true
+attr iterationvarsf temp=36,auth=false,nonce=false,timecheck=false,seqcheck=true-
+attr measurement "$temp=36, $auth=false, $nonce=false, $timecheck=false, $seqcheck=true"
+attr network BLEScenario
+attr processid 3360
+attr repetition 6
+attr replication #6
+attr resultdir results
+attr runnumber 466
+attr seedset 6
+itervar auth false
+itervar nonce false
+itervar seqcheck true
+itervar temp 36
+itervar timecheck false
+config cmdenv-express-mode true
+config network BLEScenario
+config *.algorithm "\"ASCON-128\""
+config *.sensor.algorithm "\"ASCON-128\""
+config *.ac.algorithm "\"ASCON-128\""
+config sim-time-limit 150s
+config repeat 10
+config seed-set 6
+config ned-path ../src;.
+config output-vector-file ../results/BLE-ASCON-466.vec
+config output-scalar-file ../results/BLE-ASCON-466.sca
+config **.sensor.maxMessages 1000
+config **.sensor.baseTemperature 36
+config **.sensor.payloadSize 32
+config **.attacker.forgedTemperature 18
+config **.metrics.resultDir "\"results\""
+config **.ac.authEnabled false
+config **.ac.nonceCheckEnabled false
+config **.ac.timestampCheckEnabled false
+config **.ac.sequenceCheckEnabled true
+
+par BLEScenario.sensor.out.channel typename "\"BLEScenario.BLEChannel\""
+par BLEScenario.sensor.out.channel disabled false
+attr mutable ""
+par BLEScenario.sensor.out.channel delay 0.005s
+attr mutable ""
+attr unit s
+par BLEScenario.sensor.out.channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par BLEScenario.sensor.out.channel ber 5e-06
+attr mutable ""
+par BLEScenario.sensor.out.channel per 0
+attr mutable ""
+par BLEScenario.attacker.out.channel typename "\"BLEScenario.BLEChannel\""
+par BLEScenario.attacker.out.channel disabled false
+attr mutable ""
+par BLEScenario.attacker.out.channel delay 0.005s
+attr mutable ""
+attr unit s
+par BLEScenario.attacker.out.channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par BLEScenario.attacker.out.channel ber 5e-06
+attr mutable ""
+par BLEScenario.attacker.out.channel per 0
+attr mutable ""
+par BLEScenario.sensor typename "\"TemperatureSensor\""
+par BLEScenario.sensor sourceId "\"TemperatureSensor-1\""
+par BLEScenario.sensor destinationId "\"SmartAC-1\""
+par BLEScenario.sensor algorithm "\"ASCON-128\""
+par BLEScenario.sensor maxMessages 1000
+par BLEScenario.sensor payloadSize 32
+par BLEScenario.sensor sendInterval 0.08s
+attr unit s
+par BLEScenario.sensor baseTemperature 36
+par BLEScenario.attacker typename "\"MITMAttacker\""
+par BLEScenario.attacker forgedTemperature 18
+par BLEScenario.attacker maxCaptured 16
+par BLEScenario.attacker attackInterval 0.2s
+attr unit s
+par BLEScenario.ac typename "\"SmartAC\""
+par BLEScenario.ac expectedSourceId "\"TemperatureSensor-1\""
+par BLEScenario.ac algorithm "\"ASCON-128\""
+par BLEScenario.ac networkType "\"BLE\""
+par BLEScenario.ac authEnabled false
+par BLEScenario.ac nonceCheckEnabled false
+par BLEScenario.ac timestampCheckEnabled false
+par BLEScenario.ac sequenceCheckEnabled true
+par BLEScenario.ac maxDelayMs 180
+par BLEScenario.ac timestampWindowSec 1
+par BLEScenario.metrics typename "\"MetricsCollector\""
+par BLEScenario.metrics resultDir "\"results\""
+par BLEScenario typename "\"BLEScenario\""
+par BLEScenario algorithm "\"ASCON-128\""
+

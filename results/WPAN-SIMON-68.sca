@@ -1,0 +1,99 @@
+version 3
+run WPAN-SIMON-68-20260507-00:11:08-3358
+attr configname WPAN-SIMON
+attr datetime 20260507-00:11:08
+attr datetimef 20260507-001108
+attr experiment WPAN-SIMON
+attr inifile simulations/omnetpp.ini
+attr iterationvars "$temp=28, $auth=true, $nonce=false, $timecheck=false, $seqcheck=true"
+attr iterationvarsd temp=28/auth=true/nonce=false/timecheck=false/seqcheck=true
+attr iterationvarsf temp=28,auth=true,nonce=false,timecheck=false,seqcheck=true-
+attr measurement "$temp=28, $auth=true, $nonce=false, $timecheck=false, $seqcheck=true"
+attr network WPANScenario
+attr processid 3358
+attr repetition 8
+attr replication #8
+attr resultdir results
+attr runnumber 68
+attr seedset 8
+itervar auth true
+itervar nonce false
+itervar seqcheck true
+itervar temp 28
+itervar timecheck false
+config cmdenv-express-mode true
+config network WPANScenario
+config *.algorithm "\"SIMON\""
+config *.sensor.algorithm "\"SIMON\""
+config *.ac.algorithm "\"SIMON\""
+config sim-time-limit 150s
+config repeat 10
+config seed-set 8
+config ned-path ../src;.
+config output-vector-file ../results/WPAN-SIMON-68.vec
+config output-scalar-file ../results/WPAN-SIMON-68.sca
+config **.sensor.maxMessages 1000
+config **.sensor.baseTemperature 28
+config **.sensor.payloadSize 32
+config **.attacker.forgedTemperature 18
+config **.metrics.resultDir "\"results\""
+config **.ac.authEnabled true
+config **.ac.nonceCheckEnabled false
+config **.ac.timestampCheckEnabled false
+config **.ac.sequenceCheckEnabled true
+
+par WPANScenario.sensor.out.channel typename "\"WPANScenario.WPANChannel\""
+par WPANScenario.sensor.out.channel disabled false
+attr mutable ""
+par WPANScenario.sensor.out.channel delay 0.012s
+attr mutable ""
+attr unit s
+par WPANScenario.sensor.out.channel datarate 250000bps
+attr mutable ""
+attr unit bps
+par WPANScenario.sensor.out.channel ber 1e-05
+attr mutable ""
+par WPANScenario.sensor.out.channel per 0
+attr mutable ""
+par WPANScenario.attacker.out.channel typename "\"WPANScenario.WPANChannel\""
+par WPANScenario.attacker.out.channel disabled false
+attr mutable ""
+par WPANScenario.attacker.out.channel delay 0.012s
+attr mutable ""
+attr unit s
+par WPANScenario.attacker.out.channel datarate 250000bps
+attr mutable ""
+attr unit bps
+par WPANScenario.attacker.out.channel ber 1e-05
+attr mutable ""
+par WPANScenario.attacker.out.channel per 0
+attr mutable ""
+par WPANScenario.sensor typename "\"TemperatureSensor\""
+par WPANScenario.sensor sourceId "\"TemperatureSensor-1\""
+par WPANScenario.sensor destinationId "\"SmartAC-1\""
+par WPANScenario.sensor algorithm "\"SIMON\""
+par WPANScenario.sensor maxMessages 1000
+par WPANScenario.sensor payloadSize 32
+par WPANScenario.sensor sendInterval 0.1s
+attr unit s
+par WPANScenario.sensor baseTemperature 28
+par WPANScenario.attacker typename "\"MITMAttacker\""
+par WPANScenario.attacker forgedTemperature 18
+par WPANScenario.attacker maxCaptured 16
+par WPANScenario.attacker attackInterval 0.25s
+attr unit s
+par WPANScenario.ac typename "\"SmartAC\""
+par WPANScenario.ac expectedSourceId "\"TemperatureSensor-1\""
+par WPANScenario.ac algorithm "\"SIMON\""
+par WPANScenario.ac networkType "\"WPAN\""
+par WPANScenario.ac authEnabled true
+par WPANScenario.ac nonceCheckEnabled false
+par WPANScenario.ac timestampCheckEnabled false
+par WPANScenario.ac sequenceCheckEnabled true
+par WPANScenario.ac maxDelayMs 300
+par WPANScenario.ac timestampWindowSec 1
+par WPANScenario.metrics typename "\"MetricsCollector\""
+par WPANScenario.metrics resultDir "\"results\""
+par WPANScenario typename "\"WPANScenario\""
+par WPANScenario algorithm "\"SIMON\""
+

@@ -1,0 +1,103 @@
+{
+  "q1_wpan_ble_mitm_resilience": {
+    "BLE": 0.021645527369826435,
+    "WPAN": 0.027170283806343908
+  },
+  "q2_lowest_mitm_success_algorithm": [
+    {
+      "network": "BLE",
+      "algorithm": "ASCON-128",
+      "attackAttempts": 359520,
+      "attackSuccess": 7782,
+      "mitmSuccessRate": 0.021645527369826435,
+      "firstSuccessTime": 0.205,
+      "replayRejected": 43542,
+      "spoofRejected": 125424,
+      "tamperRejected": 117984
+    }
+  ],
+  "q3_lowest_latency_algorithm": [
+    {
+      "network": "WPAN",
+      "algorithm": "ASCON-128",
+      "avgE2eDelayMs": 2147.1657285803626,
+      "avgEncMs": 0.5200000000000009,
+      "avgDecMs": 0.47999999999999937,
+      "totalEnergy": 253281.60000000003,
+      "avgOverhead": 16.0
+    }
+  ],
+  "q4_lowest_energy_algorithm": [
+    {
+      "network": "WPAN",
+      "algorithm": "SIMON",
+      "avgE2eDelayMs": 2147.1657285803626,
+      "avgEncMs": 0.30000000000000043,
+      "avgDecMs": 0.2800000000000003,
+      "totalEnergy": 168854.39999999973,
+      "avgOverhead": 8.0
+    }
+  ],
+  "q5_best_security_performance_balance": [
+    {
+      "network": "BLE",
+      "algorithm": "SIMON",
+      "accepted": 247782,
+      "rejected": 591738,
+      "mitmSuccessRate": 0.021645527369826435,
+      "avgE2eDelayMs": 4696.654659805603,
+      "avgEncMs": 0.30000000000000043,
+      "avgDecMs": 0.28000000000000036,
+      "totalSensorEnergy": 100742.39999999983,
+      "totalAcEnergy": 83951.99999999985,
+      "avgOverhead": 8.0,
+      "totalEnergy": 184694.39999999967,
+      "n_mitmSuccessRate": 0.0,
+      "n_avgE2eDelayMs": 0.9999999999996078,
+      "n_totalEnergy": 0.11876484560569904,
+      "n_avgOverhead": 0.0,
+      "securityPerformanceScore": 0.7762470308789386
+    }
+  ],
+  "q6_replay_block_conditions": [
+    {
+      "nonceCheckEnabled": 0,
+      "sequenceCheckEnabled": 1,
+      "replayBlockedRate": 1.0
+    },
+    {
+      "nonceCheckEnabled": 1,
+      "sequenceCheckEnabled": 0,
+      "replayBlockedRate": 1.0
+    },
+    {
+      "nonceCheckEnabled": 1,
+      "sequenceCheckEnabled": 1,
+      "replayBlockedRate": 1.0
+    }
+  ],
+  "q7_payload_manipulation_rejection_by_algorithm": [
+    {
+      "algorithm": "ASCON-128",
+      "tamperRejectRate": 1.0
+    },
+    {
+      "algorithm": "ChaCha20-Poly1305",
+      "tamperRejectRate": 1.0
+    },
+    {
+      "algorithm": "SIMON",
+      "tamperRejectRate": 1.0
+    }
+  ],
+  "q8_auth_disabled_mitm_change": {
+    "authOffSuccessRate": 0.0,
+    "authOnSuccessRate": 0.048201038575667654,
+    "delta": -0.048201038575667654
+  },
+  "q9_nonce_sequence_disabled_mitm_change": {
+    "nonceSeqOffSuccessRate": 0.09640207715133531,
+    "nonceSeqOnSuccessRate": 0.0,
+    "delta": 0.09640207715133531
+  }
+}

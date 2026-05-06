@@ -1,0 +1,12 @@
+{
+  "WPAN": {
+    "delayMs": 12,
+    "packetLoss": 0.01,
+    "dataRateKbps": 250
+  },
+  "BLE": {
+    "delayMs": 5,
+    "packetLoss": 0.005,
+    "dataRateKbps": 1000
+  }
+}
