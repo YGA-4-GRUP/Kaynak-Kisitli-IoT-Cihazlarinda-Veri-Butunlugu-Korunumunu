@@ -1,3 +1,11 @@
+[Inspector-0]
+classname=omnetpp::cEventHeap
+fullscreen=false
+geom=@Rect(38 59 400 300)
+id=@Variant(\0\0\0\x81\xff\xff\xff\xff\xff\xff\xff\xff)
+object=simulation.scheduled-events
+type=1
+
 [RunModeProfiles]
 fast-max-animation-speed=nan
 fast-max-playback-speed=1e+06
