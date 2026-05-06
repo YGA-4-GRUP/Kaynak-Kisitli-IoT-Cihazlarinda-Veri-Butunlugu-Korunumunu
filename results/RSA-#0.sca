@@ -1,8 +1,8 @@
 version 3
-run RSA-0-20260406-21:53:16-26328
+run RSA-0-20260506-22:58:45-26117
 attr configname RSA
-attr datetime 20260406-21:53:16
-attr datetimef 20260406-215316
+attr datetime 20260506-22:58:45
+attr datetimef 20260506-225845
 attr experiment RSA
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,16 +10,16 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network KriptoAgi
-attr processid 26328
+attr processid 26117
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
-config image-path ../inet4.5/images
-config description "RSA-2048 Simulasyonu"
+config image-path ../../../../../home/oguzyl1907/omnetpp-6.0.3/samples/inet4.5/images
+config description "Yuksek Performans - RSA-2048"
 config *.sensor.app[0].messageLength 256B
-config *.sensor.udp.procDelay 5.0ms
+config *.sensor.udp.procDelay 5.000ms
 config network KriptoAgi
 config sim-time-limit 100s
 config *.sensor.numApps 1

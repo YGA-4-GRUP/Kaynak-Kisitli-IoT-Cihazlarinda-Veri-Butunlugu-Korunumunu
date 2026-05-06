@@ -1,25 +1,25 @@
 version 3
-run ECC-0-20260506-22:58:56-26129
-attr configname ECC
-attr datetime 20260506-22:58:56
-attr datetimef 20260506-225856
-attr experiment ECC
+run CLEFIA-0-20260506-22:54:05-25941
+attr configname CLEFIA
+attr datetime 20260506-22:54:05
+attr datetimef 20260506-225405
+attr experiment CLEFIA
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network KriptoAgi
-attr processid 26129
+attr processid 25941
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
 config image-path ../../../../../home/oguzyl1907/omnetpp-6.0.3/samples/inet4.5/images
-config description "Yuksek Performans - ECC"
-config *.sensor.app[0].messageLength 172B
-config *.sensor.udp.procDelay 2.000ms
+config description "WPAN - CLEFIA"
+config *.sensor.app[0].messageLength 116B
+config *.sensor.udp.procDelay 0.130ms
 config network KriptoAgi
 config sim-time-limit 100s
 config *.sensor.numApps 1
@@ -269,14 +269,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, last"
 attr unit b
-scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:max 1888
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:max 1440
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:timeavg 0.00894912
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:timeavg 0.0068256
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -363,7 +363,7 @@ attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:sum 189312
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:sum 144512
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
@@ -371,24 +371,18 @@ attr title "outgoing packet lengths, sum"
 attr unit b
 statistic KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:histogram
 field count 101
-field mean 1874.3762376238
-field stddev 136.9171173729
+field mean 1430.8118811881
+field stddev 92.339451251487
 field min 512
-field max 1888
-field sum 189312
-field sqrsum 356716544
+field max 1440
+field sum 144512
+field sqrsum 207622144
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
 bin	-inf	0
-bin	160	0
-bin	180	0
-bin	200	0
-bin	220	0
-bin	240	0
-bin	260	0
 bin	280	0
 bin	300	0
 bin	320	0
@@ -447,7 +441,7 @@ bin	1360	0
 bin	1380	0
 bin	1400	0
 bin	1420	0
-bin	1440	0
+bin	1440	100
 bin	1460	0
 bin	1480	0
 bin	1500	0
@@ -460,34 +454,6 @@ bin	1620	0
 bin	1640	0
 bin	1660	0
 bin	1680	0
-bin	1700	0
-bin	1720	0
-bin	1740	0
-bin	1760	0
-bin	1780	0
-bin	1800	0
-bin	1820	0
-bin	1840	0
-bin	1860	0
-bin	1880	100
-bin	1900	0
-bin	1920	0
-bin	1940	0
-bin	1960	0
-bin	1980	0
-bin	2000	0
-bin	2020	0
-bin	2040	0
-bin	2060	0
-bin	2080	0
-bin	2100	0
-bin	2120	0
-bin	2140	0
-bin	2160	0
-bin	2180	0
-bin	2200	0
-bin	2220	0
-bin	2240	0
 statistic KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue flowQueueingTime:histogram
 field count 0
 field mean -nan
@@ -509,7 +475,7 @@ attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:sum 189312
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:sum 144512
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
@@ -517,24 +483,18 @@ attr title "incoming packet lengths, sum"
 attr unit b
 statistic KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:histogram
 field count 101
-field mean 1874.3762376238
-field stddev 136.9171173729
+field mean 1430.8118811881
+field stddev 92.339451251487
 field min 512
-field max 1888
-field sum 189312
-field sqrsum 356716544
+field max 1440
+field sum 144512
+field sqrsum 207622144
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
 bin	-inf	0
-bin	160	0
-bin	180	0
-bin	200	0
-bin	220	0
-bin	240	0
-bin	260	0
 bin	280	0
 bin	300	0
 bin	320	0
@@ -593,7 +553,7 @@ bin	1360	0
 bin	1380	0
 bin	1400	0
 bin	1420	0
-bin	1440	0
+bin	1440	100
 bin	1460	0
 bin	1480	0
 bin	1500	0
@@ -606,34 +566,6 @@ bin	1620	0
 bin	1640	0
 bin	1660	0
 bin	1680	0
-bin	1700	0
-bin	1720	0
-bin	1740	0
-bin	1760	0
-bin	1780	0
-bin	1800	0
-bin	1820	0
-bin	1840	0
-bin	1860	0
-bin	1880	100
-bin	1900	0
-bin	1920	0
-bin	1940	0
-bin	1960	0
-bin	1980	0
-bin	2000	0
-bin	2020	0
-bin	2040	0
-bin	2060	0
-bin	2080	0
-bin	2100	0
-bin	2120	0
-bin	2140	0
-bin	2160	0
-bin	2180	0
-bin	2200	0
-bin	2220	0
-bin	2240	0
 scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.pendingQueue droppedPacketsQueueOverflow:count 0
 attr interpolationmode none
 attr recordingmode count
@@ -652,19 +584,17 @@ par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames originatorMa
 par KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames ackHandlerModule "\"^.^.ackHandler\""
 statistic KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:histogram
 field count 100
-field mean 0.00015032091344
-field stddev 1.0133425599999e-05
+field mean 0.00013448091344
+field stddev 8.5334256000019e-06
 field min 5e-05
-field max 0.000151334256
-field sum 0.015032091344
-field sqrsum 2.2698036468683e-06
+field max 0.000135334256
+field sum 0.013448091344
+field sqrsum 1.8157207238603e-06
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetDequeued)
 attr title "queueing times"
 bin	-inf	0
-bin	2.4e-05	0
-bin	2.6e-05	0
 bin	2.8e-05	0
 bin	3e-05	0
 bin	3.2e-05	0
@@ -718,7 +648,7 @@ bin	0.000126	0
 bin	0.000128	0
 bin	0.00013	0
 bin	0.000132	0
-bin	0.000134	0
+bin	0.000134	99
 bin	0.000136	0
 bin	0.000138	0
 bin	0.00014	0
@@ -726,28 +656,18 @@ bin	0.000142	0
 bin	0.000144	0
 bin	0.000146	0
 bin	0.000148	0
-bin	0.00015	99
+bin	0.00015	0
 bin	0.000152	0
 bin	0.000154	0
 bin	0.000156	0
 bin	0.000158	0
-bin	0.00016	0
-bin	0.000162	0
-bin	0.000164	0
-bin	0.000166	0
-bin	0.000168	0
-bin	0.00017	0
-bin	0.000172	0
-bin	0.000174	0
-bin	0.000176	0
-bin	0.000178	0
 scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:max 1
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
 attr title "queue length, max"
-scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:timeavg 0.00015032091344
+scalar KriptoAgi.sensor.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:timeavg 0.00013448091344
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -852,18 +772,16 @@ attr recordingmode count
 attr title "finished frame sequences, count"
 statistic KriptoAgi.sensor.wlan[0].mac.dcf frameSequenceDuration:histogram
 field count 100
-field mean 0.00015032091344
-field stddev 1.0133425599999e-05
+field mean 0.00013448091344
+field stddev 8.5334256000019e-06
 field min 5e-05
-field max 0.000151334256
-field sum 0.015032091344
-field sqrsum 2.2698036468683e-06
+field max 0.000135334256
+field sum 0.013448091344
+field sqrsum 1.8157207238603e-06
 attr recordingmode histogram
 attr source frameSequenceDuration(frameSequenceFinished)
 attr title "frame sequence durations"
 bin	-inf	0
-bin	2.4e-05	0
-bin	2.6e-05	0
 bin	2.8e-05	0
 bin	3e-05	0
 bin	3.2e-05	0
@@ -917,7 +835,7 @@ bin	0.000126	0
 bin	0.000128	0
 bin	0.00013	0
 bin	0.000132	0
-bin	0.000134	0
+bin	0.000134	99
 bin	0.000136	0
 bin	0.000138	0
 bin	0.00014	0
@@ -925,21 +843,11 @@ bin	0.000142	0
 bin	0.000144	0
 bin	0.000146	0
 bin	0.000148	0
-bin	0.00015	99
+bin	0.00015	0
 bin	0.000152	0
 bin	0.000154	0
 bin	0.000156	0
 bin	0.000158	0
-bin	0.00016	0
-bin	0.000162	0
-bin	0.000164	0
-bin	0.000166	0
-bin	0.000168	0
-bin	0.00017	0
-bin	0.000172	0
-bin	0.000174	0
-bin	0.000176	0
-bin	0.000178	0
 statistic KriptoAgi.sensor.wlan[0].mac.dcf frameSequenceNumPackets:histogram
 field count 100
 field mean 1.99
@@ -1018,7 +926,7 @@ scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeer:count 101
 attr interpolationmode none
 attr recordingmode count
 attr title "packets sent, count"
-scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeer:sum(packetBytes) 23442
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeer:sum(packetBytes) 17898
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr title "packets sent, sum(packetBytes)"
@@ -1027,7 +935,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source ieee80211Unicast(packetSentToPeer)
 attr title "packets sent: unicast, count"
-scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerUnicast:sum(packetBytes) 23378
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerUnicast:sum(packetBytes) 17834
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source ieee80211Unicast(packetSentToPeer)
@@ -1067,7 +975,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source ieee80211NotRetry(packetSentToPeer)
 attr title "packets sent: without retry, count"
-scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerWithoutRetry:sum(packetBytes) 23442
+scalar KriptoAgi.sensor.wlan[0].mac.dcf packetSentToPeerWithoutRetry:sum(packetBytes) 17898
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source ieee80211NotRetry(packetSentToPeer)
@@ -1145,7 +1053,7 @@ scalar KriptoAgi.sensor.wlan[0].mac packetSentToLower:count 102
 attr interpolationmode none
 attr recordingmode count
 attr title "packets sent to lower layer, count"
-scalar KriptoAgi.sensor.wlan[0].mac packetSentToLower:sum(packetBytes) 23678
+scalar KriptoAgi.sensor.wlan[0].mac packetSentToLower:sum(packetBytes) 18078
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr title "packets sent to lower layer, sum(packetBytes)"
@@ -1153,7 +1061,7 @@ scalar KriptoAgi.sensor.wlan[0].mac packetReceivedFromUpper:count 101
 attr interpolationmode none
 attr recordingmode count
 attr title "packets received from upper layer, count"
-scalar KriptoAgi.sensor.wlan[0].mac packetReceivedFromUpper:sum(packetBytes) 20836
+scalar KriptoAgi.sensor.wlan[0].mac packetReceivedFromUpper:sum(packetBytes) 15236
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr title "packets received from upper layer, sum(packetBytes)"
@@ -1781,7 +1689,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source packetSent
 attr title "packets sent, count"
-scalar KriptoAgi.sensor.udp packetSent:sum(packetBytes) 18000
+scalar KriptoAgi.sensor.udp packetSent:sum(packetBytes) 12400
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSent
@@ -1838,7 +1746,7 @@ par KriptoAgi.sensor.app[0] destAddresses "\"gateway\""
 par KriptoAgi.sensor.app[0] localAddress "\"\""
 par KriptoAgi.sensor.app[0] packetName "\"UdpBasicAppData\""
 par KriptoAgi.sensor.app[0] destPort 5000
-par KriptoAgi.sensor.app[0] messageLength 172B
+par KriptoAgi.sensor.app[0] messageLength 116B
 attr unit B
 par KriptoAgi.sensor.app[0] startTime 1s
 attr unit s
@@ -1887,7 +1795,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source packetSent
 attr title "packets sent, count"
-scalar KriptoAgi.sensor.app[0] packetSent:sum(packetBytes) 17200
+scalar KriptoAgi.sensor.app[0] packetSent:sum(packetBytes) 11600
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSent
@@ -2496,7 +2404,7 @@ scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeer:count 101
 attr interpolationmode none
 attr recordingmode count
 attr title "packets received, count"
-scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeer:sum(packetBytes) 23442
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeer:sum(packetBytes) 17898
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr title "packets received, sum(packetBytes)"
@@ -2505,7 +2413,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source ieee80211Unicast(packetReceivedFromPeer)
 attr title "packets received: unicast, count"
-scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerUnicast:sum(packetBytes) 23378
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerUnicast:sum(packetBytes) 17834
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source ieee80211Unicast(packetReceivedFromPeer)
@@ -2545,7 +2453,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source ieee80211NotRetry(packetReceivedFromPeer)
 attr title "packets received: without retry, count"
-scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:sum(packetBytes) 23442
+scalar KriptoAgi.gateway.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:sum(packetBytes) 17898
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source ieee80211NotRetry(packetReceivedFromPeer)
@@ -2673,7 +2581,7 @@ scalar KriptoAgi.gateway.wlan[0].mac packetReceivedFromLower:count 101
 attr interpolationmode none
 attr recordingmode count
 attr title "packets received from lower layer, count"
-scalar KriptoAgi.gateway.wlan[0].mac packetReceivedFromLower:sum(packetBytes) 23442
+scalar KriptoAgi.gateway.wlan[0].mac packetReceivedFromLower:sum(packetBytes) 17898
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr title "packets received from lower layer, sum(packetBytes)"
@@ -2697,7 +2605,7 @@ scalar KriptoAgi.gateway.wlan[0].mac packetSentToUpper:count 100
 attr interpolationmode none
 attr recordingmode count
 attr title "packets sent to upper layer, count"
-scalar KriptoAgi.gateway.wlan[0].mac packetSentToUpper:sum(packetBytes) 20628
+scalar KriptoAgi.gateway.wlan[0].mac packetSentToUpper:sum(packetBytes) 15084
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr title "packets sent to upper layer, sum(packetBytes)"
@@ -3307,7 +3215,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source packetReceived
 attr title "packets received, count"
-scalar KriptoAgi.gateway.udp packetReceived:sum(packetBytes) 17820
+scalar KriptoAgi.gateway.udp packetReceived:sum(packetBytes) 12276
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceived
@@ -3385,19 +3293,19 @@ attr interpolationmode none
 attr recordingmode count
 attr source packetReceived
 attr title "packets received, count"
-scalar KriptoAgi.gateway.app[0] packetReceived:sum(packetBytes) 17028
+scalar KriptoAgi.gateway.app[0] packetReceived:sum(packetBytes) 11484
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceived
 attr title "packets received, sum(packetBytes)"
 statistic KriptoAgi.gateway.app[0] endToEndDelay:histogram
 field count 99
-field mean 0.00011480181745455
+field mean 9.8801817454546e-05
 field stddev 8.0939138120364e-05
-field min 0.000106667128
-field max 0.000912001384
-field sum 0.011365379928
-field sqrsum 1.9467783916032e-06
+field min 9.0667128e-05
+field max 0.000896001384
+field sum 0.009781379928
+field sqrsum 1.6084302339072e-06
 attr interpolationmode none
 attr recordingmode histogram
 attr source dataAge(packetReceived)
@@ -3408,8 +3316,8 @@ bin	0	0
 bin	2e-05	0
 bin	4e-05	0
 bin	6e-05	0
-bin	8e-05	0
-bin	0.0001	98
+bin	8e-05	98
+bin	0.0001	0
 bin	0.00012	0
 bin	0.00014	0
 bin	0.00016	0
@@ -3448,8 +3356,8 @@ bin	0.0008	0
 bin	0.00082	0
 bin	0.00084	0
 bin	0.00086	0
-bin	0.00088	0
-bin	0.0009	1
+bin	0.00088	1
+bin	0.0009	0
 bin	0.00092	0
 bin	0.00094	0
 bin	0.00096	0
@@ -3460,7 +3368,6 @@ bin	0.00104	0
 bin	0.00106	0
 bin	0.00108	0
 bin	0.0011	0
-bin	0.00112	0
 par KriptoAgi.gateway.at typename "\"inet.common.MessageDispatcher\""
 par KriptoAgi.gateway.at displayStringTextFormat "\"processed %p pk (%l)\""
 par KriptoAgi.gateway.at forwardServiceRegistration true

@@ -1,0 +1,57 @@
+{
+  "PRESENT": {
+    "proc_delay_ms": 0.09,
+    "message_length_B": 108,
+    "source": "reference"
+  },
+  "SPECK": {
+    "proc_delay_ms": 0.08,
+    "message_length_B": 108,
+    "source": "reference"
+  },
+  "CLEFIA": {
+    "proc_delay_ms": 0.13,
+    "message_length_B": 116,
+    "source": "reference"
+  },
+  "ECC": {
+    "proc_delay_ms": 10.5677,
+    "message_length_B": 171,
+    "source": "live"
+  },
+  "ChaCha20": {
+    "proc_delay_ms": 0.0118,
+    "message_length_B": 100,
+    "source": "live"
+  },
+  "GIFT": {
+    "proc_delay_ms": 0.07,
+    "message_length_B": 108,
+    "source": "reference"
+  },
+  "SPONGENT": {
+    "proc_delay_ms": 0.05,
+    "message_length_B": 120,
+    "source": "reference"
+  },
+  "ML-KEM": {
+    "proc_delay_ms": 0.5,
+    "message_length_B": 1188,
+    "source": "reference"
+  },
+  "ML-DSA": {
+    "proc_delay_ms": 0.85,
+    "message_length_B": 2420,
+    "source": "reference"
+  },
+  "RSA": {
+    "proc_delay_ms": 0.6401,
+    "message_length_B": 256,
+    "source": "live"
+  },
+  "SHA-256": {
+    "proc_delay_ms": 0.005,
+    "message_length_B": 132,
+    "source": "live"
+  }
+}

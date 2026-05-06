@@ -1,8 +1,8 @@
 version 3
-run ML-KEM-0-20260406-21:50:50-26250
+run ML-KEM-0-20260506-22:57:16-26089
 attr configname ML-KEM
-attr datetime 20260406-21:50:50
-attr datetimef 20260406-215050
+attr datetime 20260506-22:57:16
+attr datetimef 20260506-225716
 attr experiment ML-KEM
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,16 +10,16 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network KriptoAgi
-attr processid 26250
+attr processid 26089
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
-config image-path ../inet4.5/images
-config description "ML-KEM Post-Kuantum Simulasyonu"
+config image-path ../../../../../home/oguzyl1907/omnetpp-6.0.3/samples/inet4.5/images
+config description "Yuksek Performans - ML-KEM"
 config *.sensor.app[0].messageLength 1188B
-config *.sensor.udp.procDelay 0.5ms
+config *.sensor.udp.procDelay 0.500ms
 config network KriptoAgi
 config sim-time-limit 100s
 config *.sensor.numApps 1

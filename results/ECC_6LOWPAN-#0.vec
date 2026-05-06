@@ -1,23 +1,23 @@
 version 3
-run ECC-0-20260506-22:58:56-26129
-attr configname ECC
-attr datetime 20260506-22:58:56
-attr datetimef 20260506-225856
-attr experiment ECC
+run ECC_6LOWPAN-0-20260506-22:55:25-25987
+attr configname ECC_6LOWPAN
+attr datetime 20260506-22:55:25
+attr datetimef 20260506-225525
+attr experiment ECC_6LOWPAN
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network KriptoAgi
-attr processid 26129
+attr processid 25987
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
 config image-path ../../../../../home/oguzyl1907/omnetpp-6.0.3/samples/inet4.5/images
-config description "Yuksek Performans - ECC"
+config description "6LoWPAN - ECC"
 config *.sensor.app[0].messageLength 172B
 config *.sensor.udp.procDelay 2.000ms
 config network KriptoAgi
