@@ -3,8 +3,8 @@ from Crypto.Cipher import ChaCha20
 from Crypto.Random import get_random_bytes
 
 def sifrele_chacha20(veri_str):
-    key = b"1234567890abcdef1234567890abcdef" # 32 Byte
-    nonce = b"1234567890ab" # 12 Byte
+    key = get_random_bytes(32) #random 32 byte
+    nonce = get_random_bytes(12) # random 12 Byte
     
     data = veri_str.encode()
     cipher = ChaCha20.new(key=key, nonce=nonce)
