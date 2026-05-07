@@ -1,9 +1,10 @@
 import time
 import ascon
+import os
 
 def sifrele_ascon(veri_str):
-    key = b"1234567890abcdef"
-    nonce = b"1234567890abcdef"
+    key = os.urandom(16)
+    nonce = os.urandom(16)
     
     data = veri_str.encode()
     start_time = time.time()
